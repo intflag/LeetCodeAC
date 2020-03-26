@@ -1,2 +1,2 @@
 # LeetCodeAC
-LeetCode中所有已经AC的解析代码
+LeetCode中所有已经AC的解题代码
