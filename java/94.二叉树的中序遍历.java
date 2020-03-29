@@ -43,26 +43,43 @@
 class Solution {
 
     //递归方式
-    List<Integer> numList = new ArrayList<>();
+    // List<Integer> numList = new ArrayList<>();
+
+    // public List<Integer> inorderTraversal(TreeNode root) {
+    //     if (root == null) return numList;
+    //     dfs(root.left);
+    //     visit(root);
+    //     dfs(root.right);
+    //     return numList;
+    // }
+
+    // public void visit(TreeNode root) {
+    //     if (root != null) numList.add(root.val);
+    // }
+
+    // public void dfs(TreeNode root) {
+    //     if (root == null) return;
+    //     dfs(root.left);
+    //     visit(root);
+    //     dfs(root.right);
+    // } 
 
     public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> numList = new ArrayList<>();
         if (root == null) return numList;
-        dfs(root.left);
-        visit(root);
-        dfs(root.right);
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode curr = root;
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            TreeNode node = stack.pop();
+            numList.add(node.val);
+            curr = node.right;
+        }
         return numList;
     }
-
-    public void visit(TreeNode root) {
-        if (root != null) numList.add(root.val);
-    }
-
-    public void dfs(TreeNode root) {
-        if (root == null) return;
-        dfs(root.left);
-        visit(root);
-        dfs(root.right);
-    } 
 }
 // @lc code=end
 
