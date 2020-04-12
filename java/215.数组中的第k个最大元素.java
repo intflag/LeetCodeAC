@@ -35,13 +35,13 @@
 // @lc code=start
 class Solution {
 
-    /** 排序法 */
+    //排序法
     // public int findKthLargest(int[] nums, int k) {
     //     Arrays.sort(nums);
     //     return nums[nums.length - k];
     // }
 
-    /**优先队列实现 */
+    //优先队列实现
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         for (int i : nums) {
