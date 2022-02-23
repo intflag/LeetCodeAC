@@ -47,10 +47,10 @@ class Solution {
                 nums1[len--] = nums2[j--];
             } else if (j < 0) {
                 nums1[len--] = nums1[i--];
-            } else if (nums1[i] >= nums2[j]) {
-                nums1[len--] = nums1[i--];
-            } else {
+            } else if (nums1[i] < nums2[j]) {
                 nums1[len--] = nums2[j--];
+            } else {
+                nums1[len--] = nums1[i--];
             }
         }
     }
