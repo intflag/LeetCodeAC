@@ -49,7 +49,7 @@
 // @lc code=start
 class Solution {
     public boolean isPalindrome(String s) {
-        if (s == null || s.length() == 0) {
+        if (s == null) {
             return false;
         }
         int i = 0;

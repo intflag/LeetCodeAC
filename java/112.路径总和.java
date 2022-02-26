@@ -48,10 +48,11 @@ class Solution {
         if (root == null) {
             return false;
         }
-        if (root.left == null && root.right == null && root.val == sum) {
-            return true;
+        if (root.left == null && root.right == null) {
+            return root.val == sum;
         }
-        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+        int target = sum - root.val;
+        return hasPathSum(root.left, target) || hasPathSum(root.right, target);
     }
 }
 // @lc code=end

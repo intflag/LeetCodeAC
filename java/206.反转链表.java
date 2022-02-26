@@ -61,15 +61,30 @@ class Solution {
     // }
     
     //头插法 100 %, 5.06 %, 39.6 MB
+    // public ListNode reverseList(ListNode head) {
+    //     ListNode root = new ListNode(-1);
+    //     while (head != null) {
+    //         ListNode next = head.next;
+    //         head.next = root.next;
+    //         root.next = head;
+    //         head = next;
+    //     }
+    //     return root.next;
+    // }
     public ListNode reverseList(ListNode head) {
-        ListNode root = new ListNode(-1);
-        while (head != null) {
-            ListNode next = head.next;
-            head.next = root.next;
-            root.next = head;
-            head = next;
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode next = curr.next;
+            if (prev == null) {
+                curr.next = null;
+            } else {
+                curr.next = prev;
+            }
+            prev = curr;
+            curr = next;
         }
-        return root.next;
+        return prev;
     }
 }
 // @lc code=end

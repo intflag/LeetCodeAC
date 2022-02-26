@@ -74,8 +74,8 @@ class Solution {
             return Collections.emptyList();
         }
         Queue<TreeNode> queue = new LinkedList<>();
-        List<List<Integer>> rst = new ArrayList<>();
         queue.offer(root);
+        List<List<Integer>> res = new ArrayList<>();
         while (!queue.isEmpty()) {
             int size = queue.size();
             List<Integer> list = new ArrayList<>();
@@ -89,9 +89,9 @@ class Solution {
                     queue.offer(node.right);
                 }
             }
-            rst.add(list);
+            res.add(list);
         }
-        return rst;
+        return res;
     }
 }
 // @lc code=end
