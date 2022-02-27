@@ -76,11 +76,7 @@ class Solution {
         ListNode curr = head;
         while (curr != null) {
             ListNode next = curr.next;
-            if (prev == null) {
-                curr.next = null;
-            } else {
-                curr.next = prev;
-            }
+            curr.next = prev;
             prev = curr;
             curr = next;
         }

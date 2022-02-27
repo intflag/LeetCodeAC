@@ -51,21 +51,23 @@
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        if (root == null) return true;
+        if (root == null) {
+            return false;
+        }
         return isSymmetric(root.left, root.right);
     }
 
-    public boolean isSymmetric(TreeNode t1, TreeNode t2) {
-        if (t1 == null && t2 == null) {
+    boolean isSymmetric(TreeNode l1, TreeNode l2) {
+        if (l1 == null && l2 == null) {
             return true;
         }
-        if (t1 == null || t2 == null) {
+        if (l1 == null || l2 == null) {
             return false;
         }
-        if (t1.val != t2.val) {
+        if (l1.val != l2.val) {
             return false;
         }
-        return isSymmetric(t1.left, t2.right) && isSymmetric(t1.right, t2.left);
+        return isSymmetric(l1.left, l2.right) && isSymmetric(l1.right, l2.left);
     }
 }
 // @lc code=end

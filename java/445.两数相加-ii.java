@@ -43,30 +43,64 @@
  * }
  */
 class Solution {
+    // public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    //     Stack<Integer> stackA = buildStack(l1);
+    //     Stack<Integer> stackB = buildStack(l2);
+    //     ListNode head = null;
+    //     int tmp = 0;
+    //     while (!stackA.isEmpty() || !stackB.isEmpty() || tmp != 0) {
+    //         int x = stackA.isEmpty() ? 0 : stackA.pop();
+    //         int y = stackB.isEmpty() ? 0 : stackB.pop();
+    //         int sum = x + y + tmp;
+    //         ListNode node = new ListNode(sum % 10);
+    //         node.next = head;
+    //         head = node;
+    //         tmp = sum / 10;
+    //     }
+    //     return head;
+    // }
+
+    // public Stack<Integer> buildStack(ListNode node) {
+    //     Stack<Integer> stack = new Stack<>();
+    //     while (node != null) {
+    //         stack.push(node.val);
+    //         node = node.next;
+    //     }
+    //     return stack;
+    // }
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        Stack<Integer> stackA = buildStack(l1);
-        Stack<Integer> stackB = buildStack(l2);
-        ListNode head = new ListNode(-1);
-        int tmp = 0;
-        while (!stackA.isEmpty() || !stackB.isEmpty() || tmp != 0) {
-            int x = stackA.isEmpty() ? 0 : stackA.pop();
-            int y = stackB.isEmpty() ? 0 : stackB.pop();
-            int sum = x + y + tmp;
-            ListNode node = new ListNode(sum % 10);
-            node.next = head.next;
-            head.next = node;
-            tmp = sum / 10;
+        l1 = reverseListNode(l1);
+        l2 = reverseListNode(l2);
+        ListNode head = null;
+        int temp = 0;
+        while (l1 != null || l2 != null || temp != 0) {
+            int v1 = l1 == null ? 0 : l1.val;
+            int v2 = l2 == null ? 0 : l2.val;
+            int val = v1 + v2 + temp;
+            temp = val / 10;
+            ListNode node = new ListNode(val % 10);
+            node.next = head;
+            head = node;
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
         }
-        return head.next;
+        return head;
     }
 
-    public Stack<Integer> buildStack(ListNode node) {
-        Stack<Integer> stack = new Stack<>();
-        while (node != null) {
-            stack.push(node.val);
-            node = node.next;
+    ListNode reverseListNode(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
-        return stack;
+        return prev;
     }
 }
 // @lc code=end

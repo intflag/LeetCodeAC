@@ -75,7 +75,7 @@ class Solution {
         if (root.left == null && root.right == null) {
             list.add(s + root.val);
         }
-        s = s + root.val + "->";
+        s += root.val + "->";
         dfs(root.left, list, s);
         dfs(root.right, list, s);
     }
