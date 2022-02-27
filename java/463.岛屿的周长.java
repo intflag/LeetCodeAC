@@ -65,28 +65,28 @@ class Solution {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == 1) {
-                    p += dfsGrid(grid, i, j);
+                    p += dfs(grid, i, j);
                 }
             }
         }
         return p;
     }
 
-    int dfsGrid(int[][] grid, int i, int j) {
+    int dfs(int[][] grid, int i, int j) {
         if (!inArea(grid, i, j)) {
             return 1;
         }
         if (grid[i][j] == 0) {
             return 1;
         }
-        if (grid[i][j] != 1) {
+        if (grid[i][j] == 2) {
             return 0;
         }
         grid[i][j] = 2;
-        return dfsGrid(grid, i - 1, j)
-            + dfsGrid(grid, i + 1, j)
-            + dfsGrid(grid, i, j - 1)
-            + dfsGrid(grid, i, j + 1);
+        return dfs(grid, i - 1, j) 
+            + dfs(grid, i + 1, j)
+            + dfs(grid, i, j - 1)
+            + dfs(grid, i, j + 1);
     }
 
     boolean inArea(int[][] grid, int i, int j) {

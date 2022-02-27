@@ -60,7 +60,7 @@ class Solution {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == 1) {
-                    int area = area(grid, i, j);
+                    int area = dfs(grid, i, j);
                     maxArea = Math.max(maxArea, area);
                 }
             }
@@ -68,7 +68,7 @@ class Solution {
         return maxArea;
     }
 
-    public int area(int[][] grid, int i, int j) {
+    int dfs(int[][] grid, int i, int j) {
         if (!inArea(grid, i, j)) {
             return 0;
         }
@@ -77,16 +77,15 @@ class Solution {
         }
         grid[i][j] = 2;
         return 1 
-            + area(grid, i - 1, j)
-            + area(grid, i + 1, j)
-            + area(grid, i, j - 1)
-            + area(grid, i, j + 1);
+            + dfs(grid, i - 1, j)
+            + dfs(grid, i + 1, j)
+            + dfs(grid, i, j - 1)
+            + dfs(grid, i, j + 1);
     }
 
-    public boolean inArea(int[][] grid, int i, int j) {
+    boolean inArea(int[][] grid, int i, int j) {
         return 0 <= i && i < grid.length && 0 <= j && j < grid[0].length;
     }
-
 }
 // @lc code=end
 

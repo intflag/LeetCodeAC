@@ -65,7 +65,7 @@ class Solution {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == '1') {
-                    numsIsLands(grid, i, j);
+                    dfs(grid, i, j);
                     nums++;
                 }
             }
@@ -73,7 +73,7 @@ class Solution {
         return nums;
     }
 
-    private void numsIsLands(char[][] grid, int i, int j) {
+    void dfs(char[][] grid, int i, int j) {
         if (!inArea(grid, i, j)) {
             return;
         }
@@ -81,13 +81,13 @@ class Solution {
             return;
         }
         grid[i][j] = '2';
-        numsIsLands(grid, i - 1, j);
-        numsIsLands(grid, i + 1, j);
-        numsIsLands(grid, i, j - 1);
-        numsIsLands(grid, i, j + 1);
+        dfs(grid, i - 1, j);
+        dfs(grid, i + 1, j);
+        dfs(grid, i, j - 1);
+        dfs(grid, i, j + 1);
     }
 
-    private boolean inArea(char[][] grid, int i, int j) {
+    boolean inArea(char[][] grid, int i, int j) {
         return 0 <= i && i < grid.length && 0 <= j && j < grid[0].length;
     }
 }
