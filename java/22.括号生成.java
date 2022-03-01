@@ -58,11 +58,11 @@ class Solution {
             return;
         }
         if (left > 0) {
-            dfs(currStr + "(", left - 1, right, list);
-        } 
+            dfs(currStr + "(", left-1, right, list);
+        }
         if (right > 0) {
-            dfs(currStr + ")", left, right - 1, list);
-        } 
+            dfs(currStr + ")", left, right-1, list);
+        }
     }
 }
 // @lc code=end

@@ -79,7 +79,7 @@ class Solution {
         if (grid[i][j] == 0) {
             return 1;
         }
-        if (grid[i][j] == 2) {
+        if (grid[i][j] != 1) {
             return 0;
         }
         grid[i][j] = 2;

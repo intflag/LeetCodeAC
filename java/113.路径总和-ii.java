@@ -76,23 +76,23 @@ class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         List<List<Integer>> list = new ArrayList<>();
         Deque<Integer> stack = new ArrayDeque<>();
-        dfs(root, list, stack, targetSum);
+        dfs(root, targetSum, list, stack);
         return list;
     }
 
-    void dfs(TreeNode root, List<List<Integer>> list, Deque<Integer> stack, int targetSum) {
+    void dfs(TreeNode root, int targetSum, List<List<Integer>> list, Deque<Integer> stack) {
         if (root == null) {
             return;
         }
         stack.addLast(root.val);
         if (root.left == null && root.right == null) {
-            if (root.val == targetSum) {
+            if (targetSum == root.val) {
                 list.add(new ArrayList<>(stack));
             }
         }
-        int sum = targetSum - root.val;
-        dfs(root.left, list, stack, sum);
-        dfs(root.right, list, stack, sum);
+        int currSum = targetSum - root.val;
+        dfs(root.left, currSum, list, stack);
+        dfs(root.right, currSum, list, stack);
         stack.removeLast();
     }
 }

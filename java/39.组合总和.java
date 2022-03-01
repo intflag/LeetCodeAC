@@ -64,22 +64,22 @@ class Solution {
         List<List<Integer>> list = new ArrayList<>();
         Deque<Integer> stack = new ArrayDeque<>();
         Arrays.sort(candidates);
-        dfs(candidates, 0, target, list, stack);
+        dfs(candidates, 0, candidates.length, target, list, stack);
         return list;
     }
 
-    void dfs(int[] candidates, int begin, int target, List<List<Integer>> list, Deque<Integer> stack) {
+    void dfs(int[] candidates, int left, int right, int target, List<List<Integer>> list, Deque<Integer> stack) {
         if (target == 0) {
             list.add(new ArrayList<>(stack));
             return;
         }
-        for (int i = begin; i < candidates.length; i++) {
+        for (int i = left; i < right; i++) {
             int currSum = target - candidates[i];
             if (currSum < 0) {
                 break;
             }
             stack.addLast(candidates[i]);
-            dfs(candidates, i, currSum, list, stack);
+            dfs(candidates, i, right, currSum, list, stack);
             stack.removeLast();
         }
     }
