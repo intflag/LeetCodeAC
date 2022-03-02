@@ -29,20 +29,17 @@
 // @lc code=start
 class Solution {
     public String addStrings(String num1, String num2) {
-        int rema = 0;
-        int len = Math.max(num1.length(), num2.length());
-        StringBuilder sb = new StringBuilder();
         num1 = new StringBuilder(num1).reverse().toString();
         num2 = new StringBuilder(num2).reverse().toString();
-        for (int i = 0; i < len; i++) {
+        int temp = 0;
+        int len = Math.max(num1.length(), num2.length());
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < len || temp != 0; i++) {
             int x = i < num1.length() ? num1.charAt(i) - '0' : 0;
             int y = i < num2.length() ? num2.charAt(i) - '0' : 0;
-            int sum = x + y + rema;
+            int sum = x + y + temp;
             sb.append(sum % 10);
-            rema = sum / 10;
-        }
-        if (rema > 0) {
-            sb.append(rema);
+            temp = sum / 10;
         }
         return sb.reverse().toString();
     }

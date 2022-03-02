@@ -45,17 +45,13 @@ class Solution {
         if (num == 0) {
             return "0";
         }
+        int currNum = Math.abs(num);
         StringBuilder sb = new StringBuilder();
-        boolean isPositive = num > 0;
-        if (!isPositive) {
-            num = -num;
+        while (currNum > 0) {
+            sb.append(currNum % 7);
+            currNum /= 7;
         }
-        while (num > 0) {
-            sb.append(num % 7);
-            num /= 7;
-        }
-        String res = sb.reverse().toString();
-        return isPositive ? res : "-"+res;
+        return num >= 0 ? sb.reverse().toString() : "-" + sb.reverse().toString();
     }
 }
 // @lc code=end
