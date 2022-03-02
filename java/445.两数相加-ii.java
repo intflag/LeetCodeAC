@@ -69,16 +69,16 @@ class Solution {
     //     return stack;
     // }
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        l1 = reverseListNode(l1);
-        l2 = reverseListNode(l2);
-        ListNode head = null;
+        l1 = reverseList(l1);
+        l2 = reverseList(l2);
         int temp = 0;
+        ListNode head = null;
         while (l1 != null || l2 != null || temp != 0) {
-            int v1 = l1 == null ? 0 : l1.val;
-            int v2 = l2 == null ? 0 : l2.val;
-            int val = v1 + v2 + temp;
-            temp = val / 10;
-            ListNode node = new ListNode(val % 10);
+            int x = l1 == null ? 0 : l1.val;
+            int y = l2 == null ? 0 : l2.val;
+            int sum = x + y + temp;
+            temp = sum / 10;
+            ListNode node = new ListNode(sum % 10);
             node.next = head;
             head = node;
             if (l1 != null) {
@@ -91,9 +91,9 @@ class Solution {
         return head;
     }
 
-    ListNode reverseListNode(ListNode head) {
+    ListNode reverseList(ListNode root) {
         ListNode prev = null;
-        ListNode curr = head;
+        ListNode curr = root;
         while (curr != null) {
             ListNode next = curr.next;
             curr.next = prev;
@@ -102,6 +102,7 @@ class Solution {
         }
         return prev;
     }
+
 }
 // @lc code=end
 

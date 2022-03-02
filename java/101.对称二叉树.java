@@ -57,17 +57,17 @@ class Solution {
         return isSymmetric(root.left, root.right);
     }
 
-    boolean isSymmetric(TreeNode l1, TreeNode l2) {
-        if (l1 == null && l2 == null) {
+    boolean isSymmetric(TreeNode p, TreeNode q) {
+        if (p == null && q == null) {
             return true;
         }
-        if (l1 == null || l2 == null) {
+        if (p == null || q == null) {
             return false;
         }
-        if (l1.val != l2.val) {
+        if (p.val != q.val) {
             return false;
         }
-        return isSymmetric(l1.left, l2.right) && isSymmetric(l1.right, l2.left);
+        return isSymmetric(p.left, q.right) && isSymmetric(p.right, q.left);
     }
 }
 // @lc code=end
