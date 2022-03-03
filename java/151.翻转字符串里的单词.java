@@ -96,6 +96,7 @@ class Solution {
         char[] arr = s.toCharArray();
         reverse(arr, 0, arr.length);
         int begin = 0;
+        int end = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == ' ') {
                 reverse(arr, begin, i);
@@ -110,7 +111,7 @@ class Solution {
 
     String trimSpace(String s) {
         int left = 0;
-        int right = s.length() -1;
+        int right = s.length() - 1;
         StringBuilder sb = new StringBuilder();
         while (left <= right && s.charAt(left) == ' ') {
             left++;
@@ -122,7 +123,7 @@ class Solution {
             char c = s.charAt(left);
             if (c != ' ') {
                 sb.append(c);
-            }
+            } 
             if (c == ' ' && s.charAt(left - 1) != ' ') {
                 sb.append(c);
             }
@@ -131,15 +132,14 @@ class Solution {
         return sb.toString();
     }
 
-    void reverse(char[] arr, int begin, int end) {
-        int i = begin;
-        int j = end - 1;
-        while (i < j) {
-            char temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-            i++;
-            j--;
+    void reverse(char[] arr, int left, int right) {
+        right -= 1;
+        while (left < right) {
+            char c = arr[left];
+            arr[left] = arr[right];
+            arr[right] = c;
+            left++;
+            right--;
         }
     }
 }

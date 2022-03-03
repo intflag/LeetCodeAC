@@ -51,7 +51,7 @@ class Solution {
             sb.append(currNum % 7);
             currNum /= 7;
         }
-        return num >= 0 ? sb.reverse().toString() : "-" + sb.reverse().toString();
+        return num > 0 ? sb.reverse().toString() : "-" + sb.reverse().toString();
     }
 }
 // @lc code=end

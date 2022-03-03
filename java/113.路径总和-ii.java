@@ -90,11 +90,12 @@ class Solution {
                 list.add(new ArrayList<>(stack));
             }
         }
-        int currSum = targetSum - root.val;
-        dfs(root.left, currSum, list, stack);
-        dfs(root.right, currSum, list, stack);
+        targetSum -= root.val;
+        dfs(root.left, targetSum, list, stack);
+        dfs(root.right, targetSum, list, stack);
         stack.removeLast();
     }
+
 }
 // @lc code=end
 

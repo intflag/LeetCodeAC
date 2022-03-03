@@ -69,20 +69,21 @@ class Solution {
     }
 
     void dfs(int[] candidates, int left, int right, int target, List<List<Integer>> list, Deque<Integer> stack) {
-        if (target == 0) {
+        if(target == 0) {
             list.add(new ArrayList<>(stack));
             return;
         }
         for (int i = left; i < right; i++) {
             int currSum = target - candidates[i];
             if (currSum < 0) {
-                break;
+                return;
             }
             stack.addLast(candidates[i]);
             dfs(candidates, i, right, currSum, list, stack);
             stack.removeLast();
         }
     }
+
 }
 // @lc code=end
 

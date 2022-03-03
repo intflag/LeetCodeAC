@@ -50,7 +50,7 @@ class Solution {
     }
 
     void dfs(String currStr, int left, int right, List<String> list) {
-        if (left == 0 && right == 0) {
+        if(left == 0 && right == 0) {
             list.add(currStr);
             return;
         }
@@ -58,10 +58,10 @@ class Solution {
             return;
         }
         if (left > 0) {
-            dfs(currStr + "(", left-1, right, list);
+            dfs(currStr + "(", left - 1, right, list);
         }
         if (right > 0) {
-            dfs(currStr + ")", left, right-1, list);
+            dfs(currStr + ")", left, right - 1, list);
         }
     }
 }

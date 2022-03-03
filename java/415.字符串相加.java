@@ -31,15 +31,15 @@ class Solution {
     public String addStrings(String num1, String num2) {
         num1 = new StringBuilder(num1).reverse().toString();
         num2 = new StringBuilder(num2).reverse().toString();
-        int temp = 0;
-        int len = Math.max(num1.length(), num2.length());
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < len || temp != 0; i++) {
+        int k = 0;
+        int maxLen = Math.max(num1.length(), num2.length());
+        for (int i = 0; i < maxLen || k > 0; i++) {
             int x = i < num1.length() ? num1.charAt(i) - '0' : 0;
             int y = i < num2.length() ? num2.charAt(i) - '0' : 0;
-            int sum = x + y + temp;
+            int sum = x + y + k;
             sb.append(sum % 10);
-            temp = sum / 10;
+            k = sum / 10;
         }
         return sb.reverse().toString();
     }

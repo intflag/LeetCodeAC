@@ -93,9 +93,9 @@ public class Solution {
             slow = slow.next;
             if (fast == slow) {
                 ListNode prev = head;
-                while (prev != slow) {
-                    prev = prev.next;
+                while (slow != prev) {
                     slow = slow.next;
+                    prev = prev.next;
                 }
                 return prev;
             }
