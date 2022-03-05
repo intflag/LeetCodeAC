@@ -47,7 +47,7 @@ class Solution {
                 return new int[]{i + 1, j + 1};
             }
         }
-        return new int[]{-1 , -1};
+        return new int[]{-1, -1};
     }
     // public int[] twoSum(int[] numbers, int target) {
     //     if (numbers == null) {

@@ -74,12 +74,12 @@ class Solution {
         }
         if (root.left == null && root.right == null) {
             list.add(currStr + root.val);
-            return;
         }
         currStr = currStr + root.val + "->";
         dfs(root.left, currStr, list);
         dfs(root.right, currStr, list);
     }
+
 }
 // @lc code=end
 

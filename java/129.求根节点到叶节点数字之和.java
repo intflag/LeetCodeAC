@@ -82,19 +82,19 @@
  */
 class Solution {
     public int sumNumbers(TreeNode root) {
-        return dfs(root, 0);
+        return sumNumbers(root, 0);
     }
 
-    int dfs(TreeNode root, int sum) {
+    int sumNumbers(TreeNode root, int num) {
         if (root == null) {
             return 0;
         }
-        int currSum = sum * 10 + root.val;
+        int currSum = num * 10 + root.val;
         if (root.left == null && root.right == null) {
             return currSum;
         }
-        return dfs(root.left, currSum) + dfs(root.right, currSum);
-    } 
+        return sumNumbers(root.left, currSum) + sumNumbers(root.right, currSum);
+    }
 }
 // @lc code=end
 

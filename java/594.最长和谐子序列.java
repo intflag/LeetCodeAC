@@ -32,15 +32,15 @@
 // @lc code=start
 class Solution {
     public int findLHS(int[] nums) {
-        Map<Integer,Integer> numMap = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i : nums) {
-            numMap.put(i, numMap.getOrDefault(i, 0) + 1);
+            map.put(i, map.getOrDefault(i, 0) + 1);
         }
         int len = 0;
-        for (Integer key : numMap.keySet()) {
-            if (numMap.containsKey(key + 1)) {
-                int sum = numMap.get(key) + numMap.get(key + 1);
-                len = Math.max(len,sum);
+        for (int key : map.keySet()) {
+            if (map.containsKey(key + 1)) {
+                int sum = map.get(key) + map.get(key + 1);
+                len = Math.max(len, sum);
             }
         }
         return len;
