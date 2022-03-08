@@ -43,21 +43,21 @@
 // @lc code=start
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-       int m = matrix.length;
-       int n = matrix[0].length;
-       int row = 0;
-       int col = n - 1;
-       while (row < m && col >= 0) {
-           int k = matrix[row][col];
-           if (k < target) {
-               row++;
-           } else if (k > target) {
-               col--;
-           } else {
-               return true;
-           }
-       }
-       return false;
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int row = 0;
+        int col = n - 1;
+        while (row < m && col >= 0) {
+            int k = matrix[row][col];
+            if (k < target) {
+                row++;
+            } else if (k > target) {
+                col--;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 
     //从头开始搜索

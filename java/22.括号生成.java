@@ -45,12 +45,12 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
         List<String> list = new ArrayList<>();
-        dfs("", n, n, list);
+        backTracking("", n, n, list);
         return list;
     }
 
-    void dfs(String currStr, int left, int right, List<String> list) {
-        if(left == 0 && right == 0) {
+    void backTracking(String currStr, int left, int right, List<String> list) {
+        if (left == 0 && right == 0) {
             list.add(currStr);
             return;
         }
@@ -58,10 +58,10 @@ class Solution {
             return;
         }
         if (left > 0) {
-            dfs(currStr + "(", left - 1, right, list);
+            backTracking(currStr + "(", left - 1, right, list);
         }
         if (right > 0) {
-            dfs(currStr + ")", left, right - 1, list);
+            backTracking(currStr + ")", left, right - 1, list);
         }
     }
 }

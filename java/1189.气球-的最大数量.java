@@ -75,11 +75,11 @@ class Solution {
         }
         nums[2] /= 2;
         nums[3] /= 2;
-        int count = nums[0];
-        for (int i = 1; i < 5; i++) {
-            count = Math.min(count, nums[i]);
+        int maxNum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            maxNum = Math.min(maxNum, nums[i]);
         }
-        return count;
+        return maxNum;
     }
 }
 // @lc code=end
