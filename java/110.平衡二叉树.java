@@ -64,21 +64,21 @@
  */
 class Solution {
 
-    private boolean flag = true;
+    boolean res = true;
 
     public boolean isBalanced(TreeNode root) {
         maxDepth(root);
-        return flag;
+        return res;
     }
 
-    public int maxDepth(TreeNode root) {
+    int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
         int l = maxDepth(root.left);
         int r = maxDepth(root.right);
         if (Math.abs(l - r) > 1) {
-            flag = false;
+            res = false;
         }
         return Math.max(l, r) + 1;
     }

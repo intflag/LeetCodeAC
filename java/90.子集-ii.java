@@ -66,13 +66,13 @@ class Solution {
         deque.addLast(nums[k]);
         backTracking(nums, k + 1, list, deque);
         deque.removeLast();
-        
-        int j = k;
-        while (j < nums.length && nums[j] == nums[k]) {
-            j++;
+        int i = k;
+        while (i < nums.length && nums[i] == nums[k]) {
+            i++;
         }
-        backTracking(nums, j, list, deque);
+        backTracking(nums, i, list, deque);
     }
+
 }
 // @lc code=end
 

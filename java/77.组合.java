@@ -53,8 +53,8 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> list = new ArrayList<>();
         List<Integer> current = IntStream.range(1, n + 1).boxed().collect(Collectors.toList());
+        List<List<Integer>> list = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
         backTracking(current, 0, k, list, deque);
         return list;

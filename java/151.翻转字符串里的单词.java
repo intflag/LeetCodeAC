@@ -95,21 +95,20 @@ class Solution {
         s = trimSpace(s);
         char[] arr = s.toCharArray();
         reverse(arr, 0, arr.length);
-        int start = 0;
+        int begin = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == ' ') {
-                reverse(arr, start, i);
-                start = i + 1;
+                reverse(arr, begin, i);
+                begin = i + 1;
             }
             if (i == arr.length - 1) {
-                reverse(arr, start, i + 1);
+                reverse(arr, begin, i + 1);
             }
         }
         return new String(arr);
     }
 
     String trimSpace(String s) {
-        StringBuilder sb = new StringBuilder();
         int left = 0;
         int right = s.length() - 1;
         while (left <= right && s.charAt(left) == ' ') {
@@ -118,12 +117,14 @@ class Solution {
         while (left <= right && s.charAt(right) == ' ') {
             right--;
         }
+        StringBuilder sb = new StringBuilder();
         while (left <= right) {
-            if (s.charAt(left) != ' ') {
-                sb.append(s.charAt(left));
+            char c = s.charAt(left);
+            if (c != ' ') {
+                sb.append(c);
             }
-            if (s.charAt(left) == ' ' && s.charAt(left - 1) != ' ') {
-                sb.append(s.charAt(left));
+            if (c == ' ' && s.charAt(left - 1) != ' ') {
+                sb.append(c);
             }
             left++;
         }
@@ -133,13 +134,14 @@ class Solution {
     void reverse(char[] arr, int i, int j) {
         j -= 1;
         while (i < j) {
-            char k = arr[i];
+            char c = arr[i];
             arr[i] = arr[j];
-            arr[j] = k;
+            arr[j] = c;
             i++;
             j--;
         }
     }
+
 }
 // @lc code=end
 

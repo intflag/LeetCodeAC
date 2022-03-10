@@ -61,29 +61,31 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> list  = new ArrayList<>();
-        Deque<Integer> deque = new ArrayDeque<>();
         Arrays.sort(candidates);
-        backTracking(candidates, 0, candidates.length, target, list, deque);
+        List<List<Integer>> list = new ArrayList<>();
+        Deque<Integer> deque = new ArrayDeque<>();
+        backTracking(candidates, 0, target, list, deque);
         return list;
     }
 
-    void backTracking(int[] candidates, int left, int right, int target, List<List<Integer>> list, Deque<Integer> deque) {
+    void backTracking(int[] candidates, int m, int target, List<List<Integer>> list, Deque<Integer> deque) {
+        // if (target < 0) {
+        //     return;
+        // }
         if (target == 0) {
             list.add(new ArrayList<>(deque));
             return;
         }
-        for (int i = left; i < right; i++) {
-            int currSum = target - candidates[i];
-            if (currSum < 0) {
-                return;
-            }   
+        for (int i = m; i < candidates.length; i++) {
+            int currNum = target - candidates[i];
+            if (currNum < 0) {
+                break;
+            }
             deque.addLast(candidates[i]);
-            backTracking(candidates, i, right, currSum, list, deque);
+            backTracking(candidates, i, currNum, list, deque);
             deque.removeLast();
         }
     }
-
 
 }
 // @lc code=end

@@ -56,13 +56,10 @@ class Solution {
 
     void backTracking(int[] nums, int k, List<List<Integer>> list, Deque<Integer> deque) {
         if (k == nums.length) {
-            list.add(new ArrayList<>(deque));
+            list.add(new ArrayList(deque));
             return;
         }
-        //不选第 k 个元素
         backTracking(nums, k + 1, list, deque);
-
-        //选第 k 个元素
         deque.addLast(nums[k]);
         backTracking(nums, k + 1, list, deque);
         deque.removeLast();

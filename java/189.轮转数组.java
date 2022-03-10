@@ -74,14 +74,14 @@ class Solution {
         reverse(nums, k, n);
     }
 
-    void reverse(int[] nums, int start, int end) {
-        end -= 1;
-        while (start < end) {
-            int temp = nums[start];
-            nums[start] = nums[end];
-            nums[end] = temp;
-            start++;
-            end--;
+    void reverse(int[] nums, int i, int j) {
+        j -= 1;
+        while (i < j) {
+            int k = nums[i];
+            nums[i] = nums[j];
+            nums[j] = k;
+            i++;
+            j--;
         }
     }
 

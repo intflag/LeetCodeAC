@@ -53,8 +53,8 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        List<Integer> current = Arrays.stream(nums).boxed().collect(Collectors.toList());
         List<List<Integer>> list = new ArrayList<>();
+        List<Integer> current = Arrays.stream(nums).boxed().collect(Collectors.toList());
         backTracking(current, 0, list);
         return list;
     }
@@ -65,11 +65,12 @@ class Solution {
             return;
         }
         for (int i = k; i < current.size(); i++) {
-            Collections.swap(current, i, k);
+            Collections.swap(current, i , k);
             backTracking(current, k + 1, list);
-            Collections.swap(current, i, k);
+            Collections.swap(current, i , k);
         }
     }
+
 
 }
 // @lc code=end

@@ -45,13 +45,14 @@ class Solution {
         if (num == 0) {
             return "0";
         }
-        int currNum = Math.abs(num);
         StringBuilder sb = new StringBuilder();
-        while (currNum > 0) {
-            sb.append(currNum % 7);
-            currNum /= 7;
+        int currNUm = Math.abs(num);
+        while (currNUm > 0) {
+            sb.append(currNUm % 7);
+            currNUm /= 7;
         }
-        return num > 0 ? sb.reverse().toString() : "-" + sb.reverse().toString();
+        String res = sb.reverse().toString();
+        return num > 0 ? res : "-" + res;
     }
 }
 // @lc code=end

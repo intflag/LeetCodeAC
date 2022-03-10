@@ -54,7 +54,7 @@ class Solution {
         return list;
     }
 
-    void backTracking(List<Integer> current, int k, List<List<Integer>> list) {
+    void backTracking(List<Integer> current, int k, List<List<Integer>> list){
         if (k == current.size()) {
             list.add(new ArrayList<>(current));
             return;
@@ -65,9 +65,9 @@ class Solution {
                 continue;
             }
             set.add(current.get(i));
-            Collections.swap(current, k, i);
+            Collections.swap(current, i, k);
             backTracking(current, k + 1, list);
-            Collections.swap(current, k, i);
+            Collections.swap(current, i, k);
         }
     }
 
