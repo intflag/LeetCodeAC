@@ -47,22 +47,23 @@
  */
 class Solution {
 
-    int max = 0;
+    int maxDepth = 0;
 
     public int diameterOfBinaryTree(TreeNode root) {
-        maxDeep(root);
-        return max;
+        maxDepth(root);
+        return maxDepth;
     }
 
-    int maxDeep(TreeNode root) {
+    int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int l = maxDeep(root.left);
-        int r = maxDeep(root.right);
-        max = Math.max(max, l + r);
+        int l = maxDepth(root.left);
+        int r = maxDepth(root.right);
+        maxDepth = Math.max(maxDepth, l + r);
         return Math.max(l, r) + 1;
     }
+
 }
 // @lc code=end
 

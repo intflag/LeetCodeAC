@@ -58,20 +58,21 @@ class Solution {
         return list;
     }
 
-    void backTracking(int[] nums, int k, List<List<Integer>> list, Deque<Integer> deque) {
-        if (k == nums.length) {
-            list.add(new ArrayList<>(deque));
+    void backTracking(int[] nums, int m, List<List<Integer>> list, Deque<Integer> deque) {
+        if (m == nums.length) {
+            list.add(new ArrayList(deque));
             return;
         }
-        deque.addLast(nums[k]);
-        backTracking(nums, k + 1, list, deque);
-        deque.removeLast();
-        int i = k;
-        while (i < nums.length && nums[i] == nums[k]) {
+        int i = m;
+        while (i < nums.length && nums[i] == nums[m]) {
             i++;
         }
         backTracking(nums, i, list, deque);
+        deque.addLast(nums[m]);
+        backTracking(nums, m + 1, list, deque);
+        deque.removeLast();
     }
+
 
 }
 // @lc code=end

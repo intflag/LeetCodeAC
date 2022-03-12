@@ -85,17 +85,15 @@ class Solution {
         return sumNumbers(root, 0);
     }
 
-    int sumNumbers(TreeNode root, int num) {
+    int sumNumbers(TreeNode root, int nums) {
         if (root == null) {
             return 0;
         }
-        int sum = num * 10 + root.val;
+        int sum = 10 * nums + root.val;
         if (root.left == null && root.right == null) {
             return sum;
         }
-        int left = sumNumbers(root.left, sum);
-        int right = sumNumbers(root.right, sum);
-        return left + right;
+        return sumNumbers(root.left, sum) + sumNumbers(root.right, sum);
     }
 }
 // @lc code=end

@@ -74,7 +74,7 @@ class Solution {
     }
 
     void backTracking(int m, int k, int target, List<List<Integer>> list, Deque<Integer> deque) {
-        if (target == 0 && deque.size() == k) {
+        if (target == 0 && k == deque.size()) {
             list.add(new ArrayList<>(deque));
             return;
         }
@@ -88,6 +88,7 @@ class Solution {
             deque.removeLast();
         }
     }
+
 }
 // @lc code=end
 

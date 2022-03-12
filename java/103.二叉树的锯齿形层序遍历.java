@@ -1,22 +1,19 @@
-import java.util.ArrayList;
-import java.util.Collections;
-
 /*
- * @lc app=leetcode.cn id=102 lang=java
+ * @lc app=leetcode.cn id=103 lang=java
  *
- * [102] 二叉树的层序遍历
+ * [103] 二叉树的锯齿形层序遍历
  *
- * https://leetcode-cn.com/problems/binary-tree-level-order-traversal/description/
+ * https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/description/
  *
  * algorithms
- * Medium (64.42%)
- * Likes:    1183
+ * Medium (57.23%)
+ * Likes:    603
  * Dislikes: 0
- * Total Accepted:    483.9K
- * Total Submissions: 751.2K
+ * Total Accepted:    211.4K
+ * Total Submissions: 369.7K
  * Testcase Example:  '[3,9,20,null,null,15,7]'
  *
- * 给你二叉树的根节点 root ，返回其节点值的 层序遍历 。 （即逐层地，从左到右访问所有节点）。
+ * 给你二叉树的根节点 root ，返回其节点值的 锯齿形层序遍历 。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。
  * 
  * 
  * 
@@ -24,7 +21,7 @@ import java.util.Collections;
  * 
  * 
  * 输入：root = [3,9,20,null,null,15,7]
- * 输出：[[3],[9,20],[15,7]]
+ * 输出：[[3],[20,9],[15,7]]
  * 
  * 
  * 示例 2：
@@ -47,7 +44,7 @@ import java.util.Collections;
  * 
  * 
  * 树中节点数目在范围 [0, 2000] 内
- * -1000 <= Node.val <= 1000
+ * -100 <= Node.val <= 100
  * 
  * 
  */
@@ -69,19 +66,20 @@ import java.util.Collections;
  * }
  */
 class Solution {
-    public List<List<Integer>> levelOrder(TreeNode root) {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> list = new ArrayList<>();
         if (root == null) {
             return list;
         }
-        Deque<TreeNode> queue = new ArrayDeque<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
+        int level = 0;
         while (!queue.isEmpty()) {
             int n = queue.size();
-            List<Integer> currList = new ArrayList<>();
+            List<Integer> cList = new ArrayList<>();
             while (n-- > 0) {
                 TreeNode node = queue.poll();
-                currList.add(node.val);
+                cList.add(node.val);
                 if (node.left != null) {
                     queue.offer(node.left);
                 }
@@ -89,7 +87,10 @@ class Solution {
                     queue.offer(node.right);
                 }
             }
-            list.add(currList);
+            if (level++ % 2 != 0) {
+                Collections.reverse(cList);
+            }
+            list.add(cList);
         }
         return list;
     }

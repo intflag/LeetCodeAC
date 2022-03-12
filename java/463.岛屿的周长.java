@@ -83,15 +83,16 @@ class Solution {
             return 0;
         }
         grid[i][j] = 2;
-        return dfs(grid, i - 1, j) 
-            + dfs(grid, i + 1, j) 
-            + dfs(grid, i, j - 1) 
+        return dfs(grid, i - 1, j)
+            + dfs(grid, i + 1, j)
+            + dfs(grid, i, j - 1)
             + dfs(grid, i, j + 1);
     }
 
     boolean inArea(int[][] grid, int i, int j) {
         return 0 <= i && i < grid.length && 0 <= j && j < grid[0].length;
     }
+
 }
 // @lc code=end
 

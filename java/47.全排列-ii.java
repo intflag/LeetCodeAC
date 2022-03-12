@@ -54,23 +54,22 @@ class Solution {
         return list;
     }
 
-    void backTracking(List<Integer> current, int k, List<List<Integer>> list){
-        if (k == current.size()) {
+    void backTracking(List<Integer> current, int m, List<List<Integer>> list) {
+        if (m == current.size()) {
             list.add(new ArrayList<>(current));
             return;
         }
         Set<Integer> set = new HashSet<>();
-        for (int i = k; i < current.size(); i++) {
+        for (int i = m; i < current.size(); i++) {
             if (set.contains(current.get(i))) {
                 continue;
             }
             set.add(current.get(i));
-            Collections.swap(current, i, k);
-            backTracking(current, k + 1, list);
-            Collections.swap(current, i, k);
+            Collections.swap(current, i, m);
+            backTracking(current, m + 1, list);
+            Collections.swap(current, i, m);
         }
     }
-
 }
 // @lc code=end
 
