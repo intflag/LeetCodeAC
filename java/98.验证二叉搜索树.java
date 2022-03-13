@@ -73,20 +73,20 @@ class Solution {
     boolean res = true;
 
     public boolean isValidBST(TreeNode root) {
-        traverse(root);
+        dfs(root);
         return res;
     }
 
-    void traverse(TreeNode root) {
+    void dfs(TreeNode root) {
         if (root == null) {
             return;
         }
-        traverse(root.left);
+        dfs(root.left);
         if (prev != null && prev.val >= root.val) {
             res = false;
         }
         prev = root;
-        traverse(root.right);
+        dfs(root.right);
     }
 
 }

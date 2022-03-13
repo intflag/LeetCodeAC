@@ -74,14 +74,14 @@ class Solution {
         if (root == null) {
             return list;
         }
-        Deque<TreeNode> queue = new ArrayDeque<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
             int n = queue.size();
-            List<Integer> currList = new ArrayList<>();
+            List<Integer> cList = new ArrayList<>();
             while (n-- > 0) {
                 TreeNode node = queue.poll();
-                currList.add(node.val);
+                cList.add(node.val);
                 if (node.left != null) {
                     queue.offer(node.left);
                 }
@@ -89,7 +89,7 @@ class Solution {
                     queue.offer(node.right);
                 }
             }
-            list.add(currList);
+            list.add(cList);
         }
         return list;
     }

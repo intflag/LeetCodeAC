@@ -64,20 +64,21 @@ import java.util.ArrayList;
 class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> list = new ArrayList<>();
-        dfs(root, "", list);
+        dfs("", root, list);
         return list;
     }
 
-    void dfs(TreeNode root, String currStr, List<String> list) {
+    void dfs(String str, TreeNode root, List<String> list) {
         if (root == null) {
             return;
         }
         if (root.left == null && root.right == null) {
-            list.add(currStr + root.val);
+            list.add(str + root.val);
+            return;
         }
-        currStr = currStr + root.val + "->";
-        dfs(root.left, currStr, list);
-        dfs(root.right, currStr, list);
+        str += root.val + "->";
+        dfs(str, root.left, list);
+        dfs(str, root.right, list);
     }
 
 }

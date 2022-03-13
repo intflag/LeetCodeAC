@@ -58,7 +58,7 @@ class Solution {
     }
 
     boolean isSymmetric(TreeNode p, TreeNode q) {
-        if (p == null && q == null) {
+        if (p == null && q== null) {
             return true;
         }
         if (p == null || q == null) {
@@ -69,6 +69,7 @@ class Solution {
         }
         return isSymmetric(p.left, q.right) && isSymmetric(p.right, q.left);
     }
+
 }
 // @lc code=end
 

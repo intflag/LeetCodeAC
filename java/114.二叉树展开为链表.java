@@ -76,13 +76,9 @@
  */
 class Solution {
 
-    TreeNode prev = null;
+    TreeNode prev= null;
 
     public void flatten(TreeNode root) {
-        traverse(root);
-    }
-
-    void traverse(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -90,12 +86,14 @@ class Solution {
         TreeNode right = root.right;
         root.left = null;
         root.right = null;
-        if (prev != null) {
+        if (prev == null) {
+            prev = root;
+        } else {
             prev.right = root;
+            prev = root;
         }
-        prev = root;
-        traverse(left);
-        traverse(right);
+        flatten(left);
+        flatten(right);
     }
 }
 // @lc code=end

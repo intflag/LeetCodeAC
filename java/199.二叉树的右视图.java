@@ -77,10 +77,10 @@ class Solution {
         queue.offer(root);
         while (!queue.isEmpty()) {
             int n = queue.size();
-            List<Integer> cList = new ArrayList<>();
-            while (n-- > 0) {   
+            Integer val = null;
+            while (n-- > 0) {
                 TreeNode node = queue.poll();
-                cList.add(node.val);
+                val = node.val;
                 if (node.left != null) {
                     queue.offer(node.left);
                 }
@@ -88,7 +88,7 @@ class Solution {
                     queue.offer(node.right);
                 }
             }
-            list.add(cList.get(cList.size() - 1));
+            list.add(val);
         }
         return list;
     }

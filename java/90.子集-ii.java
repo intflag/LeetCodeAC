@@ -60,7 +60,7 @@ class Solution {
 
     void backTracking(int[] nums, int m, List<List<Integer>> list, Deque<Integer> deque) {
         if (m == nums.length) {
-            list.add(new ArrayList(deque));
+            list.add(new ArrayList<>(deque));
             return;
         }
         int i = m;

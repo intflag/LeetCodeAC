@@ -49,7 +49,7 @@ class Solution {
             return false;
         }
         sum -= root.val;
-        if (root.left == null && root.right == null && sum == 0) {
+        if (sum == 0 && root.left == null && root.right == null) {
             return true;
         }
         return hasPathSum(root.left, sum) || hasPathSum(root.right, sum);

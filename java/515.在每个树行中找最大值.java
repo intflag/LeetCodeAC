@@ -72,10 +72,10 @@ class Solution {
         queue.offer(root);
         while (!queue.isEmpty()) {
             int n = queue.size();
-            Integer maxVal = queue.peek().val;
+            int val = queue.peek().val;
             while (n-- > 0) {
                 TreeNode node = queue.poll();
-                maxVal = Math.max(maxVal, node.val);
+                val = Math.max(val, node.val);
                 if (node.left != null) {
                     queue.offer(node.left);
                 }
@@ -83,7 +83,7 @@ class Solution {
                     queue.offer(node.right);
                 }
             }
-            list.add(maxVal);
+            list.add(val);
         }
         return list;
     }

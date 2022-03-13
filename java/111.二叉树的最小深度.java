@@ -48,12 +48,12 @@ class Solution {
         if (root == null) {
             return 0;
         }
-        int left = minDepth(root.left);
-        int right = minDepth(root.right);
-        if (left == 0 || right == 0) {
-            return left + right + 1;
+        int l = minDepth(root.left);
+        int r = minDepth(root.right);
+        if (l == 0 || r == 0){
+            return l + r + 1;
         }
-        return Math.min(left, right) + 1;
+        return Math.min(l, r) + 1;
     }
 }
 // @lc code=end

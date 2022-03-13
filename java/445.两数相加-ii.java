@@ -71,16 +71,16 @@ class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         l1 = reverseList(l1);
         l2 = reverseList(l2);
-        ListNode head = null;
-        int temp = 0;
-        while (l1 != null || l2 != null || temp > 0) {
+        ListNode prev = null;
+        int k = 0;
+        while (l1 != null || l2 != null || k > 0) {
             int x = l1 == null ? 0 : l1.val;
             int y = l2 == null ? 0 : l2.val;
-            int sum = x + y + temp;
+            int sum = x + y + k;
             ListNode node = new ListNode(sum % 10);
-            node.next = head;
-            head = node;
-            temp = sum / 10;
+            node.next = prev;
+            prev = node;
+            k = sum / 10;
             if (l1 != null) {
                 l1 = l1.next;
             }
@@ -88,7 +88,7 @@ class Solution {
                 l2 = l2.next;
             }
         }
-        return head;
+        return prev;
     }
 
     ListNode reverseList(ListNode head) {

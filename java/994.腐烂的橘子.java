@@ -69,22 +69,22 @@
 class Solution {
     public int orangesRotting(int[][] grid) {
         Queue<int[]> queue = new ArrayDeque<>();
-        int count = 0;
+        int cnt = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
-                if (grid[i][j] == 1) {
-                    count++;
-                }
                 if (grid[i][j] == 2) {
                     queue.offer(new int[]{i, j});
                 }
+                if (grid[i][j] == 1) {
+                    cnt++;
+                }
             }
         }
-        int min = 0;
         int[][] moves = new int[][]{
             {-1, 0}, {1, 0}, {0, -1}, {0, 1}
         };
-        while (count > 0 && !queue.isEmpty()) {
+        int min = 0;
+        while (cnt > 0 && !queue.isEmpty()) {
             min++;
             int n = queue.size();
             while (n-- > 0) {
@@ -92,17 +92,17 @@ class Solution {
                 int i = node[0];
                 int j = node[1];
                 for (int[] move : moves) {
-                    int i2 = i + move[0];
-                    int j2 = j + move[1];
-                    if (inArea(grid, i2, j2) && grid[i2][j2] == 1) {
-                        grid[i2][j2] = 2;
-                        count--;
-                        queue.offer(new int[]{i2, j2});
+                    int r = i + move[0];
+                    int c = j + move[1];
+                    if (inArea(grid, r, c) && grid[r][c] == 1) {
+                        grid[r][c] = 2;
+                        cnt--;
+                        queue.offer(new int[]{r, c});
                     }
                 }
             }
         }
-        if (count > 0) {
+        if (cnt > 0) {
             return -1;
         }
         return min;

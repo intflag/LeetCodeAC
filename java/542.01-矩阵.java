@@ -60,24 +60,25 @@ class Solution {
             for (int j = 0; j < mat[0].length; j++) {
                 if (mat[i][j] == 0) {
                     queue.offer(new int[]{i, j});
-                } else {
+                }
+                if (mat[i][j] == 1) {
                     mat[i][j] = -1;
                 }
             }
         }
         int[][] moves = new int[][]{
-            {-1, 0}, {1, 0}, {0, -1}, {0 , 1}
+            {-1, 0}, {1, 0}, {0, -1}, {0, 1}
         };
         while (!queue.isEmpty()) {
             int[] node = queue.poll();
             int i = node[0];
             int j = node[1];
             for (int[] move : moves) {
-                int i2 = i + move[0];
-                int j2 = j + move[1];
-                if (inArea(mat, i2, j2) && mat[i2][j2] == -1) {
-                    mat[i2][j2] = mat[i][j] + 1;
-                    queue.offer(new int[]{i2, j2});
+                int r = i + move[0];
+                int c = j + move[1];
+                if (inArea(mat, r, c) && mat[r][c] == -1) {
+                    mat[r][c] = mat[i][j] + 1;
+                    queue.offer(new int[]{r, c});
                 }
             }
         }

@@ -70,13 +70,13 @@ class Solution {
                 }
             }
         }
-        if (queue.isEmpty() || queue.size() == grid.length * grid.length) {
+        if (queue.isEmpty() || queue.size() == grid.length * grid[0].length) {
             return -1;
         }
+        int distance = 0;
         int[][] moves = new int[][]{
             {-1, 0}, {1, 0}, {0, -1}, {0, 1}
         };
-        int distance = -1;
         while (!queue.isEmpty()) {
             distance++;
             int n = queue.size();
@@ -85,16 +85,16 @@ class Solution {
                 int i = node[0];
                 int j = node[1];
                 for (int[] move : moves) {
-                    int i2 = i + move[0];
-                    int j2 = j + move[1];
-                    if (inArea(grid, i2, j2) && grid[i2][j2] == 0) {
-                        grid[i2][j2] = 2;
-                        queue.offer(new int[]{i2, j2});
+                    int r = i + move[0];
+                    int c = j + move[1];
+                    if (inArea(grid, r, c) && grid[r][c] == 0) {
+                        grid[r][c] = 2;
+                        queue.offer(new int[]{r, c});
                     }
                 }
             }
         }
-        return distance;
+        return distance - 1;
     }
 
     boolean inArea(int[][] grid, int i, int j) {
