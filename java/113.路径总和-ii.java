@@ -85,17 +85,14 @@ class Solution {
             return;
         }
         deque.addLast(root.val);
-        if (root.left == null && root.right == null) {
-            if (root.val == targetSum) {
-                list.add(new ArrayList<>(deque));
-            }
+        if (root.left == null && root.right == null && targetSum == root.val) {
+            list.add(new ArrayList<>(deque));
         }
         int sum = targetSum - root.val;
         backTracking(root.left, sum, list, deque);
         backTracking(root.right, sum, list, deque);
         deque.removeLast();
     }
-
 
 }
 // @lc code=end

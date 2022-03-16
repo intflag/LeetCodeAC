@@ -68,22 +68,22 @@ class Solution {
         if (root == null) {
             return list;
         }
-        Queue<TreeNode> queue = new ArrayDeque<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            int n = queue.size();
-            int val = queue.peek().val;
+        Deque<TreeNode> deque = new ArrayDeque<>();
+        deque.offer(root);
+        while (!deque.isEmpty()) {
+            int n = deque.size();
+            int currMax = deque.peek().val;
             while (n-- > 0) {
-                TreeNode node = queue.poll();
-                val = Math.max(val, node.val);
+                TreeNode node = deque.poll();
+                currMax = Math.max(currMax, node.val);
                 if (node.left != null) {
-                    queue.offer(node.left);
+                    deque.offer(node.left);
                 }
                 if (node.right != null) {
-                    queue.offer(node.right);
+                    deque.offer(node.right);
                 }
             }
-            list.add(val);
+            list.add(currMax);
         }
         return list;
     }

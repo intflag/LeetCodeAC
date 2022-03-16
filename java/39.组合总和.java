@@ -69,17 +69,20 @@ class Solution {
     }
 
     void backTracking(int[] candidates, int m, int target, List<List<Integer>> list, Deque<Integer> deque) {
+        // if (target < 0) {
+        //     return;
+        // }
         if (target == 0) {
             list.add(new ArrayList<>(deque));
             return;
         }
         for (int i = m; i < candidates.length; i++) {
-            int currNum = target - candidates[i];
-            if (currNum < 0) {
+            int currSum = target - candidates[i];
+            if (currSum < 0) {
                 break;
             }
             deque.addLast(candidates[i]);
-            backTracking(candidates, i, currNum, list, deque);
+            backTracking(candidates, i, currSum, list, deque);
             deque.removeLast();
         }
     }

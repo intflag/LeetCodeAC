@@ -80,9 +80,8 @@ class Solution {
         if (Math.abs(l - r) > 1) {
             res = false;
         }
-        return Math.max(l , r) + 1;
+        return Math.max(l, r) + 1;
     }
-
 }
 // @lc code=end
 

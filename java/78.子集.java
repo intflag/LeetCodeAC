@@ -64,7 +64,6 @@ class Solution {
         backTracking(nums, m + 1, list, deque);
         deque.removeLast();
     }
-
 }
 // @lc code=end
 

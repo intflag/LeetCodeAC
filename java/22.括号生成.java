@@ -49,19 +49,19 @@ class Solution {
         return list;
     }
 
-    void backTracking(String currStr, int left, int right, List<String> list) {
+    void backTracking(String str, int left, int right, List<String> list) {
         if (left == 0 && right == 0) {
-            list.add(currStr);
+            list.add(str);
             return;
         }
         if (left > right) {
             return;
         }
         if (left > 0) {
-            backTracking(currStr + "(", left - 1, right, list);
+            backTracking(str + "(", left - 1, right, list);
         }
         if (right > 0) {
-            backTracking(currStr + ")", left, right - 1, list);
+            backTracking(str + ")", left, right - 1, list);
         }
     }
 }

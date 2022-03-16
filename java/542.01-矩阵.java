@@ -74,11 +74,11 @@ class Solution {
             int i = node[0];
             int j = node[1];
             for (int[] move : moves) {
-                int r = i + move[0];
-                int c = j + move[1];
-                if (inArea(mat, r, c) && mat[r][c] == -1) {
-                    mat[r][c] = mat[i][j] + 1;
-                    queue.offer(new int[]{r, c});
+                int c = i + move[0];
+                int r = j + move[1];
+                if (inArea(mat, c, r) && mat[c][r] == -1) {
+                    mat[c][r] = mat[i][j] + 1;
+                    queue.offer(new int[]{c, r});
                 }
             }
         }

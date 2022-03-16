@@ -79,16 +79,15 @@ class Solution {
             return;
         }
         for (int i = m; i <= 9; i++) {
-            int currNum = target - i;
-            if (currNum < 0) {
+            int currSum = target - i;
+            if (currSum < 0) {
                 break;
             }
             deque.addLast(i);
-            backTracking(i + 1, k, currNum, list, deque);
+            backTracking(i + 1, k, currSum, list, deque);
             deque.removeLast();
         }
     }
-
 }
 // @lc code=end
 

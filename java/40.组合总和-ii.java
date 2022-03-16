@@ -71,20 +71,18 @@ class Solution {
             return;
         }
         for (int i = m; i < candidates.length; i++) {
-            if (m < i && candidates[i] == candidates[i - 1]) {
+            if (m <i && candidates[i] == candidates[i - 1]) {
                 continue;
             }
-            int currNum = target - candidates[i];
-            if (currNum < 0) {
+            int currSum = target - candidates[i];
+            if (currSum < 0) {
                 break;
             }
             deque.addLast(candidates[i]);
-            backTracking(candidates, i + 1, currNum, list, deque);
+            backTracking(candidates, i + 1, currSum, list, deque);
             deque.removeLast();
         }
-
     }
-
 }
 // @lc code=end
 

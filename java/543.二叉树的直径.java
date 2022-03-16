@@ -63,7 +63,6 @@ class Solution {
         maxDepth = Math.max(maxDepth, l + r);
         return Math.max(l, r) + 1;
     }
-
 }
 // @lc code=end
 

@@ -75,24 +75,23 @@ class Solution {
         }
     }
 
-    void dfs(char[][] grid, int i, int j, char flag) {
+    void dfs(char[][] grid, int i, int j, char c) {
         if (!inArea(grid, i, j)) {
             return;
         }
         if (grid[i][j] != 'O') {
             return;
         }
-        grid[i][j] = flag;
-        dfs(grid, i - 1, j, flag);
-        dfs(grid, i + 1, j, flag);
-        dfs(grid, i, j - 1, flag);
-        dfs(grid, i, j + 1, flag);
+        grid[i][j] = c;
+        dfs(grid, i - 1, j, c);
+        dfs(grid, i + 1, j, c);
+        dfs(grid, i, j - 1, c);
+        dfs(grid, i, j + 1, c);
     }
 
     boolean inArea(char[][] grid, int i, int j) {
         return 0 <= i && i < grid.length && 0 <= j && j < grid[0].length;
     }
-
 }
 // @lc code=end
 

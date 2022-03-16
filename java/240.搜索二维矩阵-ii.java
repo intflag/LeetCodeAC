@@ -48,10 +48,9 @@ class Solution {
         int row = 0;
         int col = n - 1;
         while (row < m && col >= 0) {
-            int k = matrix[row][col];
-            if (k < target) {
+            if (matrix[row][col] < target) {
                 row++;
-            } else if (k > target) {
+            } else if (matrix[row][col] > target) {
                 col--;
             } else {
                 return true;

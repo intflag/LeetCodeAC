@@ -78,18 +78,18 @@ class Solution {
             {-1, 0}, {1, 0}, {0, -1}, {0, 1}
         };
         while (!queue.isEmpty()) {
-            distance++;
             int n = queue.size();
+            distance++;
             while (n-- > 0) {
                 int[] node = queue.poll();
                 int i = node[0];
                 int j = node[1];
                 for (int[] move : moves) {
-                    int r = i + move[0];
-                    int c = j + move[1];
-                    if (inArea(grid, r, c) && grid[r][c] == 0) {
-                        grid[r][c] = 2;
-                        queue.offer(new int[]{r, c});
+                    int row = i + move[0];
+                    int col = j + move[1];
+                    if (inArea(grid, row, col) && grid[row][col] == 0) {
+                        grid[row][col] = 2;
+                        queue.offer(new int[]{row,  col});
                     }
                 }
             }
