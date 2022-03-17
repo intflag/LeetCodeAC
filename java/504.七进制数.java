@@ -45,11 +45,11 @@ class Solution {
         if (num == 0) {
             return "0";
         }
+        int currNum = Math.abs(num);
         StringBuilder sb = new StringBuilder();
-        int currNUm = Math.abs(num);
-        while (currNUm > 0) {
-            sb.append(currNUm % 7);
-            currNUm /= 7;
+        while (currNum > 0) {
+            sb.append(currNum % 7);
+            currNum /= 7;
         }
         String res = sb.reverse().toString();
         return num > 0 ? res : "-" + res;

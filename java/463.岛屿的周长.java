@@ -92,7 +92,6 @@ class Solution {
     boolean inArea(int[][] grid, int i, int j) {
         return 0 <= i && i < grid.length && 0 <= j && j < grid[0].length;
     }
-
 }
 // @lc code=end
 

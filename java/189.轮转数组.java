@@ -67,24 +67,22 @@
 // @lc code=start
 class Solution {
     public void rotate(int[] nums, int k) {
-        int n = nums.length;
-        k %= n;
-        reverse(nums, 0, n);
+        k %= nums.length;
+        reverse(nums, 0, nums.length);
         reverse(nums, 0, k);
-        reverse(nums, k, n);
+        reverse(nums, k, nums.length);
     }
 
     void reverse(int[] nums, int i, int j) {
         j -= 1;
         while (i < j) {
-            int k = nums[i];
+            int tmp = nums[i];
             nums[i] = nums[j];
-            nums[j] = k;
+            nums[j] = tmp;
             i++;
             j--;
         }
     }
-
 }
 // @lc code=end
 

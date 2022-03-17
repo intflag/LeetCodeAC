@@ -86,12 +86,10 @@ class Solution {
         TreeNode right = root.right;
         root.left = null;
         root.right = null;
-        if (prev == null) {
-            prev = root;
-        } else {
+        if (prev != null) {
             prev.right = root;
-            prev = root;
         }
+        prev = root;
         flatten(left);
         flatten(right);
     }

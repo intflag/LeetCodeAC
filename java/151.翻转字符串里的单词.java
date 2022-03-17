@@ -94,39 +94,38 @@ class Solution {
     public String reverseWords(String s) {
         s = trimSpace(s);
         char[] arr = s.toCharArray();
-        reverse(arr, 0, arr.length);
-        int begin = 0;
+        reverse(arr, 0, s.length());
+        int start = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == ' ') {
-                reverse(arr, begin, i);
-                begin = i + 1;
+                reverse(arr, start, i);
+                start = i + 1;
             }
             if (i == arr.length - 1) {
-                reverse(arr, begin, i + 1);
+                reverse(arr, start, i + 1);
             }
         }
         return new String(arr);
     }
 
     String trimSpace(String s) {
-        int left = 0;
-        int right = s.length() - 1;
-        while (left <= right && s.charAt(left) == ' ') {
-            left++;
-        }
-        while (left <= right && s.charAt(right) == ' ') {
-            right--;
-        }
         StringBuilder sb = new StringBuilder();
-        while (left <= right) {
-            char c = s.charAt(left);
-            if (c != ' ') {
-                sb.append(c);
+        int i = 0;
+        int j = s.length() - 1;
+        while (i <= j && s.charAt(i) == ' ') {
+            i++;
+        }
+        while (i <= j && s.charAt(j) == ' ') {
+            j--;
+        }
+        while (i <= j) {
+            if (s.charAt(i) != ' ') {
+                sb.append(s.charAt(i));
             }
-            if (c == ' ' && s.charAt(left - 1) != ' ') {
-                sb.append(c);
+            if (s.charAt(i) == ' ' && s.charAt(i - 1) != ' ') {
+                sb.append(s.charAt(i));
             }
-            left++;
+            i++;
         }
         return sb.toString();
     }
@@ -134,14 +133,13 @@ class Solution {
     void reverse(char[] arr, int i, int j) {
         j -= 1;
         while (i < j) {
-            char c = arr[i];
+            char k = arr[i];
             arr[i] = arr[j];
-            arr[j] = c;
+            arr[j] = k;
             i++;
             j--;
         }
     }
-
 }
 // @lc code=end
 

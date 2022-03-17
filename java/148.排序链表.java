@@ -72,13 +72,13 @@ class Solution {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode mid = splitListNode(head);
+        ListNode mid = split(head);
         ListNode left = sortList(head);
         ListNode right = sortList(mid);
-        return mergeTwoLists(left, right);
+        return merge(left, right);
     }
 
-    ListNode splitListNode(ListNode head) {
+    ListNode split(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
         ListNode prev = null;
@@ -91,7 +91,7 @@ class Solution {
         return slow;
     }
 
-    ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    ListNode merge(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
         }
@@ -99,10 +99,10 @@ class Solution {
             return l1;
         }
         if (l1.val <= l2.val) {
-            l1.next = mergeTwoLists(l1.next, l2);
+            l1.next = merge(l1.next, l2);
             return l1;
         } else {
-            l2.next = mergeTwoLists(l1, l2.next);
+            l2.next = merge(l1, l2.next);
             return l2;
         }
     }
