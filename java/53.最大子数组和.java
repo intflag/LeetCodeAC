@@ -59,15 +59,18 @@
 // @lc code=start
 class Solution {
     public int maxSubArray(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
+        //子问题：f(k) = nums[0...k) 中以 nums[k-1] 结尾的最大子数组和
+        //原问题：max{f(k)}, 0 <= k <= n
+        //f(0) = 0
+        //f(k) = max{f(k - 1)+nums[k - 1], f(k - 1)}
+        int n = nums.length;
+        int[] dp = new int[n + 1];
+        int max = nums[0];
+        for (int i = 1; i <=n; i++) {
+            dp[i] = Math.max(dp[i - 1], 0) + nums[i - 1];
+            max = Math.max(max, dp[i]);
         }
-        int sum = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]);
-            sum = Math.max(sum, nums[i]);
-        }
-        return sum;
+        return max;
     }
 }
 // @lc code=end
