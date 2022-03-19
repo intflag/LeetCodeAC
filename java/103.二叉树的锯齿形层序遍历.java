@@ -87,7 +87,7 @@ class Solution {
                     queue.offer(node.right);
                 }
             }
-            if (level++ % 2 != 0) {
+            if (level++ % 2 == 1) {
                 Collections.reverse(cList);
             }
             list.add(cList);

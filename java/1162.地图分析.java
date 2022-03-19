@@ -62,6 +62,7 @@
 // @lc code=start
 class Solution {
     public int maxDistance(int[][] grid) {
+        int distance = 0;
         Queue<int[]> queue = new ArrayDeque<>();
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
@@ -73,7 +74,6 @@ class Solution {
         if (queue.isEmpty() || queue.size() == grid.length * grid[0].length) {
             return -1;
         }
-        int distance = 0;
         int[][] moves = new int[][]{
             {-1, 0}, {1, 0}, {0, -1}, {0, 1}
         };
@@ -85,11 +85,11 @@ class Solution {
                 int i = node[0];
                 int j = node[1];
                 for (int[] move : moves) {
-                    int row = i + move[0];
-                    int col = j + move[1];
-                    if (inArea(grid, row, col) && grid[row][col] == 0) {
-                        grid[row][col] = 2;
-                        queue.offer(new int[]{row,  col});
+                    int r = i + move[0];
+                    int c = j + move[1];
+                    if (inArea(grid, r, c) && grid[r][c] == 0) {
+                        grid[r][c] = 2;
+                        queue.offer(new int[]{r, c});
                     }
                 }
             }

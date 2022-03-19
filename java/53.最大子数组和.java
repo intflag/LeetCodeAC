@@ -66,7 +66,7 @@ class Solution {
         int n = nums.length;
         int[] dp = new int[n + 1];
         int max = nums[0];
-        for (int i = 1; i <=n; i++) {
+        for (int i = 1; i <= n; i++) {
             dp[i] = Math.max(dp[i - 1], 0) + nums[i - 1];
             max = Math.max(max, dp[i]);
         }

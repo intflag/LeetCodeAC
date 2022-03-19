@@ -40,13 +40,13 @@ class Solution {
         if (s.length() != t.length()) {
             return false;
         }
-        int[] nums = new int[26];
+        int[] map = new int[26];
         for (int i = 0; i < s.length(); i++) {
-            nums[s.charAt(i) - 'a']++;
-            nums[t.charAt(i) - 'a']--;
+            map[s.charAt(i) - 'a']++;
+            map[t.charAt(i) - 'a']--;
         }
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
+        for (int i = 0; i < 26; i++) {
+            if (map[i] != 0) {
                 return false;
             }
         }

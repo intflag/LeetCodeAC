@@ -85,8 +85,8 @@ class Solution {
             {-1, 0}, {1, 0}, {0, -1}, {0, 1}
         };
         while (cnt > 0 && !queue.isEmpty()) {
-            min++;
             int n = queue.size();
+            min++;
             while (n-- > 0) {
                 int[] node = queue.poll();
                 int i = node[0];
