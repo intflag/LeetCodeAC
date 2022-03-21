@@ -38,21 +38,24 @@
 // @lc code=start
 class Solution {
     public int mySqrt(int x) {
-        if (x <= 1) return x;
-        int low = 1;
-        int high = x;
-        while (low <= high) {
-            int mid = low + ((high - low) >> 1);
-            int sqrt = x / mid;
-            if (sqrt == mid) {
-                return mid;
-            } else if (sqrt > mid) {
-                low = mid + 1;
+        if (x <= 1) {
+            return x;
+        }
+        int i = 0;
+        int j = x;
+        int res = -1;
+        while (i <= j) {
+            int m = i + ((j - i) >> 1);
+            int sqrt = x / m;
+            if (sqrt == m) {
+                return m;
+            } else if (m < sqrt) {
+                i = m + 1;
             } else {
-                high = mid - 1;
+                j = m - 1;
             }
         }
-        return high;
+        return j;
     }
 }
 // @lc code=end

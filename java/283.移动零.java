@@ -32,15 +32,21 @@
 // @lc code=start
 class Solution {
     public void moveZeroes(int[] nums) {
-        int index = 0;
-        for (int i : nums) {
-            if (i != 0) {
-                nums[index++] = i;
+        int fast = 0;
+        int slow = 0;
+        while (fast < nums.length) {
+            if (nums[fast] != 0) {
+                swap(nums, fast, slow);
+                slow++;
             }
+            fast++;
         }
-        while (index < nums.length) {
-            nums[index++] = 0;
-        }
+    }
+
+    void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 }
 // @lc code=end

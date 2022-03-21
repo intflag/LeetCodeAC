@@ -70,7 +70,6 @@ class Solution {
             Collections.swap(current, i, m);
         }
     }
-
 }
 // @lc code=end
 

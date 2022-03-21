@@ -67,12 +67,11 @@ class Solution {
         while (i < nums.length && nums[i] == nums[m]) {
             i++;
         }
-        backTracking(nums, i, list, deque);
-        deque.addLast(nums[m]);
+        backTracking(nums,i, list, deque);
+        deque.push(nums[m]);
         backTracking(nums, m + 1, list, deque);
-        deque.removeLast();
+        deque.pop();
     }
-
 
 }
 // @lc code=end

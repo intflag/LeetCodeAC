@@ -53,26 +53,23 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> combine(int n, int k) {
-        List<Integer> current = IntStream.range(1, n + 1).boxed().collect(Collectors.toList());
         List<List<Integer>> list = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
-        backTracking(current, 0, k, list, deque);
+        backTracking(n, 1, k, list, deque);
         return list;
     }
 
-    void backTracking(List<Integer> current, int m, int k, List<List<Integer>> list, Deque<Integer> deque) {
+    void backTracking(int n, int m, int k, List<List<Integer>> list, Deque<Integer> deque) {
         if (k == deque.size()) {
             list.add(new ArrayList<>(deque));
             return;
         }
-        for (int i = m; i < current.size(); i++) {
-            deque.addLast(current.get(i));
-            backTracking(current, i + 1, k, list, deque);
+        for (int i = m; i <= n; i++) {
+            deque.addLast(i);
+            backTracking(n, i + 1, k, list, deque);
             deque.removeLast();
         }
     }
-
-
 }
 // @lc code=end
 

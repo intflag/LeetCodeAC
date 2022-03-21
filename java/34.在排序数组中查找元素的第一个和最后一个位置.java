@@ -42,18 +42,18 @@ class Solution {
         return new int[]{first, last};
     }
 
-    public int binarySearch(int[] nums, int target) {
-        int low = 0;
-        int high = nums.length;
-        while (low < high) {
-            int mid = low + ((high - low) >> 1);
-            if (nums[mid] >= target) {
-                high = mid;
+    int binarySearch(int[] nums, int target) {
+        int i = 0;
+        int j = nums.length;
+        while (i < j) {
+            int m = i + ((j -i) >> 1);
+            if (nums[m] >= target) {
+                j = m;
             } else {
-                low = mid + 1;
+                i = m + 1;
             }
         }
-        return low;
+        return i;
     }
 }
 // @lc code=end
