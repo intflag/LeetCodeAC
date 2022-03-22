@@ -74,10 +74,10 @@ class Solution {
         int j = nums.length;
         while (i < j) {
             int m = i + ((j - i) >> 1);
-            if (nums[m] < target) {
-                i = m + 1;
-            } else if (nums[m] >= target) {
+            if (target <= nums[m]) {
                 j = m;
+            } else {
+                i = m + 1;
             }
         }
         return i;

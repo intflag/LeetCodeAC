@@ -43,16 +43,15 @@ class Solution {
         }
         int i = 0;
         int j = x;
-        int res = -1;
         while (i <= j) {
             int m = i + ((j - i) >> 1);
             int sqrt = x / m;
             if (sqrt == m) {
                 return m;
-            } else if (m < sqrt) {
-                i = m + 1;
-            } else {
+            } else if (sqrt < m) {
                 j = m - 1;
+            } else {
+                i = m + 1;
             }
         }
         return j;
