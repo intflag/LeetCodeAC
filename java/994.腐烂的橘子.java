@@ -80,10 +80,10 @@ class Solution {
                 }
             }
         }
-        int min = 0;
         int[][] moves = new int[][]{
             {-1, 0}, {1, 0}, {0, -1}, {0, 1}
         };
+        int min = 0;
         while (cnt > 0 && !queue.isEmpty()) {
             int n = queue.size();
             min++;

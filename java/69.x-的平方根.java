@@ -45,10 +45,9 @@ class Solution {
         int j = x;
         while (i <= j) {
             int m = i + ((j - i) >> 1);
-            int sqrt = x / m;
-            if (sqrt == m) {
+            if ((long) m * m == x) {
                 return m;
-            } else if (sqrt < m) {
+            } else if ((long) m * m > x) {
                 j = m - 1;
             } else {
                 i = m + 1;

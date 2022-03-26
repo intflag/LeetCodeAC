@@ -67,16 +67,16 @@ class Solution {
     boolean res = true;
 
     public boolean isBalanced(TreeNode root) {
-        maxDepth(root);
+        depth(root);
         return res;
     }
 
-    int maxDepth(TreeNode root) {
+    int depth(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int l = maxDepth(root.left);
-        int r = maxDepth(root.right);
+        int l = depth(root.left);
+        int r = depth(root.right);
         if (Math.abs(l - r) > 1) {
             res = false;
         }

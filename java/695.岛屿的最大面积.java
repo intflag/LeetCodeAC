@@ -56,16 +56,14 @@
 // @lc code=start
 class Solution {
     public int maxAreaOfIsland(int[][] grid) {
-        int maxArea = 0;
+        int max = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
-                if (grid[i][j] == 1) {
-                    int area = dfs(grid, i, j);
-                    maxArea = Math.max(area, maxArea);
-                }
+                int area = dfs(grid, i, j);
+                max = Math.max(max, area);
             }
         }
-        return maxArea;
+        return max;
     }
 
     int dfs(int[][] grid, int i, int j) {

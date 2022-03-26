@@ -81,7 +81,7 @@ class Solution {
         int r = dfs(root.right);
         int sum = root.val + Math.max(0, l) + Math.max(0, r);
         maxSum = Math.max(maxSum, sum);
-        return Math.max(l, r) + root.val;
+        return Math.max(0, Math.max(l, r)) + root.val;
     }
 }
 // @lc code=end

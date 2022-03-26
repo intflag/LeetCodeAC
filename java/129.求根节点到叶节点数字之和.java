@@ -82,18 +82,18 @@
  */
 class Solution {
     public int sumNumbers(TreeNode root) {
-        return sumNumbers(root, 0);
+        return dfs(root, 0);
     }
 
-    int sumNumbers(TreeNode root, int num) {
+    int dfs(TreeNode root, int m) {
         if (root == null) {
             return 0;
         }
-        int sum = 10 * num + root.val;
+        int num = 10 * m + root.val;
         if (root.left == null && root.right == null) {
-            return sum;
+            return num;
         }
-        return sumNumbers(root.left, sum) + sumNumbers(root.right, sum);
+        return dfs(root.left, num) + dfs(root.right, num);
     }
 }
 // @lc code=end

@@ -64,7 +64,6 @@
 // @lc code=start
 class Solution {
     public boolean backspaceCompare(String s, String t) {
-        //return buildString(s).equals(buildString(t));
         int i = s.length() - 1;
         int j = t.length() - 1;
         int skipS = 0;
@@ -72,22 +71,22 @@ class Solution {
         while (i >= 0 || j >= 0) {
             while (i >= 0) {
                 if (s.charAt(i) == '#') {
+                    i--;
                     skipS++;
-                    i--;
                 } else if (skipS > 0) {
-                    skipS--;
                     i--;
+                    skipS--;
                 } else {
                     break;
                 }
             }
             while (j >= 0) {
                 if (t.charAt(j) == '#') {
+                    j--;
                     skipT++;
-                    j--;
                 } else if (skipT > 0) {
-                    skipT--;
                     j--;
+                    skipT--;
                 } else {
                     break;
                 }

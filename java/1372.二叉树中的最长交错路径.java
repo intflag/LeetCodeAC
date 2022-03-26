@@ -88,16 +88,16 @@ class Solution {
         return max;
     }
 
-    void dfs(TreeNode root, int left, int right) {
-        max = Math.max(max, Math.max(left, right));
+    void dfs(TreeNode root, int l, int r) {
+        max = Math.max(max, Math.max(l, r));
         if (root == null) {
             return;
         }
         if (root.left != null) {
-            dfs(root.left, right + 1, 0);
+            dfs(root.left, r + 1, 0);
         }
         if (root.right != null) {
-            dfs(root.right, 0, left + 1);
+            dfs(root.right, 0, l + 1);
         }
     }
 }

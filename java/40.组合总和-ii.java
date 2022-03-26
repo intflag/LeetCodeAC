@@ -71,7 +71,7 @@ class Solution {
             return;
         }
         for (int i = m; i < candidates.length; i++) {
-            if (m <i && candidates[i] == candidates[i - 1]) {
+            if (m < i && candidates[i] == candidates[i - 1]) {
                 continue;
             }
             int currSum = target - candidates[i];

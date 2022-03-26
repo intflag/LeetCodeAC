@@ -88,7 +88,6 @@ class Solution {
         prev = root;
         dfs(root.right);
     }
-
 }
 // @lc code=end
 
