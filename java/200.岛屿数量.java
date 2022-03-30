@@ -61,16 +61,16 @@
 // @lc code=start
 class Solution {
     public int numIslands(char[][] grid) {
-        int nums = 0;
+        int count = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == '1') {
+                    count++;
                     dfs(grid, i, j);
-                    nums++;
                 }
             }
         }
-        return nums;
+        return count;
     }
 
     void dfs(char[][] grid, int i, int j) {
@@ -90,7 +90,6 @@ class Solution {
     boolean inArea(char[][] grid, int i, int j) {
         return 0 <= i && i < grid.length && 0 <= j && j < grid[0].length;
     }
-
 }
 // @lc code=end
 

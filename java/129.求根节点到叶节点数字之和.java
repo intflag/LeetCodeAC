@@ -85,11 +85,11 @@ class Solution {
         return dfs(root, 0);
     }
 
-    int dfs(TreeNode root, int m) {
+    int dfs(TreeNode root, int num) {
         if (root == null) {
             return 0;
         }
-        int num = 10 * m + root.val;
+        num = num * 10 + root.val;
         if (root.left == null && root.right == null) {
             return num;
         }
