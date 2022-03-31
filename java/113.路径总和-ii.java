@@ -85,7 +85,7 @@ class Solution {
             return;
         }
         deque.addLast(root.val);
-        if (root.left == null && root.right == null && targetSum == root.val) {
+        if (targetSum == root.val && root.left == null && root.right == null) {
             list.add(new ArrayList<>(deque));
         }
         int sum = targetSum - root.val;
@@ -93,7 +93,6 @@ class Solution {
         backTracking(root.right, sum, list, deque);
         deque.removeLast();
     }
-
 }
 // @lc code=end
 

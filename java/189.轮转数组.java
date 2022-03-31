@@ -76,9 +76,9 @@ class Solution {
     void reverse(int[] nums, int i, int j) {
         j -= 1;
         while (i < j) {
-            int tmp = nums[i];
+            int k = nums[i];
             nums[i] = nums[j];
-            nums[j] = tmp;
+            nums[j] = k;
             i++;
             j--;
         }

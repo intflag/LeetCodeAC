@@ -93,7 +93,7 @@ public class Solution {
             slow = slow.next;
             if (fast == slow) {
                 ListNode prev = head;
-                while (slow != prev) {
+                while (prev != slow) {
                     prev = prev.next;
                     slow = slow.next;
                 }

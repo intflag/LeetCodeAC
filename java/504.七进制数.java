@@ -52,7 +52,7 @@ class Solution {
             currNum /= 7;
         }
         String res = sb.reverse().toString();
-        return num > 0 ? res : "-" + res;
+        return num > 0 ? res : "-"+res;
     }
 }
 // @lc code=end
