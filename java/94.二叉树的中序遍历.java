@@ -65,20 +65,36 @@ class Solution {
     // } 
 
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> numList = new ArrayList<>();
-        if (root == null) return numList;
-        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> list = new ArrayList<>();
+        //inOrder(root, list);
+        inOrderUseStack(root, list);
+        return list;
+    }
+
+    void inOrderUseStack(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        Deque<TreeNode> deque = new ArrayDeque<>();
         TreeNode curr = root;
-        while (curr != null || !stack.isEmpty()) {
+        while (curr != null || !deque.isEmpty()) {
             while (curr != null) {
-                stack.push(curr);
+                deque.push(curr);
                 curr = curr.left;
             }
-            TreeNode node = stack.pop();
-            numList.add(node.val);
+            TreeNode node = deque.pop();
+            list.add(node.val);
             curr = node.right;
         }
-        return numList;
+    }
+
+    void inOrder(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        inOrder(root.left, list);
+        list.add(root.val);
+        inOrder(root.right, list);
     }
 }
 // @lc code=end

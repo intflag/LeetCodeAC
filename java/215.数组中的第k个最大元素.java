@@ -41,17 +41,81 @@ class Solution {
     //     return nums[nums.length - k];
     // }
 
-    //优先队列实现
     public int findKthLargest(int[] nums, int k) {
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
-        for (int i : nums) {
-            pq.add(i);
-            if (pq.size() > k) {
-                pq.poll();
+        //bubbleSort(nums);
+        //insertSort(nums);
+        //selectSort(nums);
+        quickSort(nums, 0, nums.length - 1);
+        return nums[k - 1];
+    } 
+
+    void quickSort(int[] nums, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        int mid = partition(nums, left, right);
+        quickSort(nums, left, mid - 1);
+        quickSort(nums, mid + 1, right);
+    }
+
+    int partition(int[] nums, int left, int right) {
+        int mid = left;
+        int flag = nums[right];
+        for (int i = left; i < right; i++) {
+            if (nums[i] > flag) {
+                swap(nums, i, mid);
+                mid++;
             }
         }
-        return pq.peek();
-    } 
+        swap(nums, mid, right);
+        return mid;
+    }
+
+    void selectSort(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] < nums[j]) {
+                    swap(nums, i, j);
+                }
+            }
+        }
+    }
+
+    void insertSort(int[] nums) {
+        int n = nums.length;
+        if (n <= 1) {
+            return;
+        }
+        for (int i = 1; i < n; i++) {
+            int val = nums[i];
+            int j = i - 1;
+            while (j >= 0) {
+                if (val > nums[j]) {
+                    nums[j + 1] = nums[j];
+                } else {
+                    break;
+                }
+                j--;
+            }
+            nums[j + 1] = val;
+        }
+    }
+
+    void bubbleSort(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length - i - 1; j++) {
+                if (nums[j] < nums[j + 1]) {
+                    swap(nums, j, j + 1);
+                }
+            }
+        }
+    }
+
+    void swap(int[] nums, int i, int j) {
+        int k = nums[i];
+        nums[i] = nums[j];
+        nums[j] = k;
+    }
 }
 // @lc code=end
 

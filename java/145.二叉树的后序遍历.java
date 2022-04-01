@@ -64,21 +64,39 @@ class Solution {
     //     visit(root);
     // }
 
-    //非递归方式
     public List<Integer> postorderTraversal(TreeNode root) {
-        List<Integer> numList = new ArrayList<>();
-        if (root == null) return numList;
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            if (node == null) continue;
-            numList.add(node.val);
-            stack.push(node.left);
-            stack.push(node.right);
+        List<Integer> list = new ArrayList<>();
+        //postOrder(root, list);
+        postOrderUseStack(root, list);
+        return list;
+    }
+
+    void postOrderUseStack(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
         }
-        Collections.reverse(numList);
-        return numList;
+        Deque<TreeNode> deque = new ArrayDeque<>();
+        deque.push(root);
+        while (!deque.isEmpty()) {
+            TreeNode node = deque.pop();
+            list.add(node.val);
+            if (node.left != null) {
+                deque.push(node.left);
+            }
+            if (node.right != null) {
+                deque.push(node.right);
+            }
+        }
+        Collections.reverse(list);
+    }
+
+    void postOrder(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        postOrder(root.left, list);
+        postOrder(root.right, list);
+        list.add(root.val);
     }
 }
 // @lc code=end

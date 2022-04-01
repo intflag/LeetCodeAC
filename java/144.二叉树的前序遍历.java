@@ -65,20 +65,38 @@ class Solution {
     //     dfs(root.right);
     // }
 
-    //非递归方式
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        if (root == null) return res;
-        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> list = new ArrayList<>();
+        //preOrder(root, list);
+        preOrderUseStack(root, list);
+        return list;
+    }
+
+    void preOrderUseStack(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        Deque<TreeNode> stack = new ArrayDeque<>();
         stack.push(root);
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
-            if (node == null) continue;
-            res.add(node.val);
-            stack.push(node.right);
-            stack.push(node.left);
+            list.add(node.val);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
         }
-        return res;
+    }
+
+    void preOrder(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        list.add(root.val);
+        preOrder(root.left, list);
+        preOrder(root.right, list);
     }
 }
 // @lc code=end
