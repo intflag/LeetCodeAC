@@ -42,9 +42,9 @@ class Solution {
     // }
 
     public int findKthLargest(int[] nums, int k) {
-        //bubbleSort(nums);
-        //insertSort(nums);
-        //selectSort(nums);
+        // bubbleSort(nums);
+        // insertSort(nums);
+        // selectSort(nums);
         quickSort(nums, 0, nums.length - 1);
         return nums[k - 1];
     } 
@@ -90,7 +90,7 @@ class Solution {
             int val = nums[i];
             int j = i - 1;
             while (j >= 0) {
-                if (val > nums[j]) {
+                if (nums[j] < val) {
                     nums[j + 1] = nums[j];
                 } else {
                     break;

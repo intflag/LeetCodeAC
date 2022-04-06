@@ -68,8 +68,32 @@ class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         //preOrder(root, list);
-        preOrderUseStack(root, list);
+        //preOrderUseStack(root, list);
+        preOrderUseMorris(root, list);
         return list;
+    }
+
+    void preOrderUseMorris(TreeNode root, List<Integer> list) {
+        TreeNode curr = root;
+        while (curr != null) {
+            if (curr.left == null) {
+                list.add(curr.val);
+                curr = curr.right;
+            } else {
+                TreeNode next = curr.left;
+                while (next.right != null && next.right != curr) {
+                    next = next.right;
+                }
+                if (next.right == null) {
+                    list.add(curr.val);
+                    next.right = curr;
+                    curr = curr.left;
+                } else {
+                    next.right = null;
+                    curr = curr.right;
+                }
+            }
+        }
     }
 
     void preOrderUseStack(TreeNode root, List<Integer> list) {

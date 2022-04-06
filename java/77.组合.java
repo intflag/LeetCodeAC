@@ -55,18 +55,18 @@ class Solution {
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> list = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
-        backTracking(n, 1, k, list, deque);
+        backTracking(n, k, 1, list, deque);
         return list;
     }
 
-    void backTracking(int n, int m, int k, List<List<Integer>> list, Deque<Integer> deque) {
+    void backTracking(int n, int k, int m, List<List<Integer>> list, Deque<Integer> deque) {
         if (k == deque.size()) {
             list.add(new ArrayList<>(deque));
             return;
         }
         for (int i = m; i <= n; i++) {
             deque.addLast(i);
-            backTracking(n, i + 1, k, list, deque);
+            backTracking(n, k, i + 1, list, deque);
             deque.removeLast();
         }
     }

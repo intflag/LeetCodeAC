@@ -55,7 +55,6 @@
 // @lc code=start
 class Solution {
     public int maxNumberOfBalloons(String text) {
-        int maxNum = 0;
         int[] map = new int[5];
         for (char c : text.toCharArray()) {
             if (c == 'b') {
@@ -74,13 +73,13 @@ class Solution {
                 map[4]++;
             }
         }
+        int max = map[0];
         map[2] /= 2;
         map[3] /= 2;
-        maxNum = map[0];
-        for (int i = 1; i < 5; i++) {
-            maxNum = Math.min(map[i], maxNum);
+        for (int i : map) {
+            max = Math.min(max, i);
         }
-        return maxNum;
+        return max;
     }
 }
 // @lc code=end

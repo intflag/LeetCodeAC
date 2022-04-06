@@ -51,8 +51,8 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        Arrays.sort(nums);
         List<List<Integer>> list = new ArrayList<>();
+        Arrays.sort(nums);
         Deque<Integer> deque = new ArrayDeque<>();
         backTracking(nums, 0, list, deque);
         return list;
@@ -67,12 +67,11 @@ class Solution {
         while (i < nums.length && nums[i] == nums[m]) {
             i++;
         }
-        backTracking(nums,i, list, deque);
-        deque.push(nums[m]);
+        backTracking(nums, i, list, deque);
+        deque.addLast(nums[m]);
         backTracking(nums, m + 1, list, deque);
-        deque.pop();
+        deque.removeLast();
     }
-
 }
 // @lc code=end
 

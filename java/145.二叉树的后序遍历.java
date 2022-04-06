@@ -75,16 +75,16 @@ class Solution {
         if (root == null) {
             return;
         }
-        Deque<TreeNode> deque = new ArrayDeque<>();
-        deque.push(root);
-        while (!deque.isEmpty()) {
-            TreeNode node = deque.pop();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
             list.add(node.val);
             if (node.left != null) {
-                deque.push(node.left);
+                stack.push(node.left);
             }
             if (node.right != null) {
-                deque.push(node.right);
+                stack.push(node.right);
             }
         }
         Collections.reverse(list);

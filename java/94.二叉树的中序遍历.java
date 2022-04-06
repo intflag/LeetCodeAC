@@ -67,22 +67,46 @@ class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         //inOrder(root, list);
-        inOrderUseStack(root, list);
+        // inOrderUseStack(root, list);
+        inOrderUseMorris(root, list);
         return list;
+    }
+
+    void inOrderUseMorris(TreeNode root, List<Integer> list) {
+        TreeNode curr = root;
+        while (curr != null) {
+            if (curr.left == null) {
+                list.add(curr.val);
+                curr = curr.right;
+            } else {
+                TreeNode next = curr.left;
+                while (next.right != null && next.right != curr) {
+                    next = next.right;
+                }
+                if (next.right == null) {
+                    next.right = curr;
+                    curr = curr.left;
+                } else {
+                    list.add(curr.val);
+                    next.right = null;
+                    curr = curr.right;
+                }
+            }
+        }
     }
 
     void inOrderUseStack(TreeNode root, List<Integer> list) {
         if (root == null) {
             return;
         }
-        Deque<TreeNode> deque = new ArrayDeque<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode curr = root;
-        while (curr != null || !deque.isEmpty()) {
+        while (curr != null || !stack.isEmpty()) {
             while (curr != null) {
-                deque.push(curr);
+                stack.push(curr);
                 curr = curr.left;
             }
-            TreeNode node = deque.pop();
+            TreeNode node = stack.pop();
             list.add(node.val);
             curr = node.right;
         }
