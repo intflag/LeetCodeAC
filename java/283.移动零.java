@@ -44,9 +44,9 @@ class Solution {
     }
 
     void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
+        int k = nums[i];
         nums[i] = nums[j];
-        nums[j] = temp;
+        nums[j] = k;
     }
 }
 // @lc code=end
