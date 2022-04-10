@@ -71,9 +71,8 @@ class Solution {
         if (root == null) {
             return list;
         }
-        Queue<TreeNode> queue = new ArrayDeque<>();
+        Deque<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
-        int level = 0;
         while (!queue.isEmpty()) {
             int n = queue.size();
             List<Integer> cList = new ArrayList<>();
@@ -87,7 +86,7 @@ class Solution {
                     queue.offer(node.right);
                 }
             }
-            if (level++ % 2 == 1) {
+            if (list.size() % 2 == 1) {
                 Collections.reverse(cList);
             }
             list.add(cList);

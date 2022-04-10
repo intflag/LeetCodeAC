@@ -89,11 +89,11 @@ class Solution {
         if (root == null) {
             return 0;
         }
-        num = num * 10 + root.val;
+        int sum = 10 * num + root.val;
         if (root.left == null && root.right == null) {
-            return num;
+            return sum;
         }
-        return dfs(root.left, num) + dfs(root.right, num);
+        return dfs(root.left, sum) + dfs(root.right, sum);
     }
 }
 // @lc code=end

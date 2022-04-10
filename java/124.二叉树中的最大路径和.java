@@ -66,11 +66,11 @@
  */
 class Solution {
 
-    int maxSum = Integer.MIN_VALUE;
+    int maxPathSum = Integer.MIN_VALUE;
 
     public int maxPathSum(TreeNode root) {
         dfs(root);
-        return maxSum;
+        return maxPathSum;
     }
 
     int dfs(TreeNode root) {
@@ -79,9 +79,9 @@ class Solution {
         }
         int l = dfs(root.left);
         int r = dfs(root.right);
-        int sum = root.val + Math.max(0, l) + Math.max(0, r);
-        maxSum = Math.max(maxSum, sum);
-        return Math.max(0, Math.max(l, r)) + root.val;
+        int sum = Math.max(l, 0) + Math.max(r, 0) + root.val;
+        maxPathSum = Math.max(maxPathSum, sum);
+        return Math.max(Math.max(l, r), 0) + root.val;
     }
 }
 // @lc code=end

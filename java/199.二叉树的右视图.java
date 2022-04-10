@@ -73,7 +73,7 @@ class Solution {
         if (root == null) {
             return list;
         }
-        Queue<TreeNode> queue = new ArrayDeque<>();
+        Deque<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
             int n = queue.size();

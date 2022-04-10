@@ -68,25 +68,25 @@
 // @lc code=start
 class Solution {
     public int orangesRotting(int[][] grid) {
-        Queue<int[]> queue = new ArrayDeque<>();
-        int cnt = 0;
+        Deque<int[]> queue = new ArrayDeque<>();
+        int count = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == 2) {
                     queue.offer(new int[]{i, j});
                 }
                 if (grid[i][j] == 1) {
-                    cnt++;
+                    count++;
                 }
             }
         }
+        int min = 0;
         int[][] moves = new int[][]{
             {-1, 0}, {1, 0}, {0, -1}, {0, 1}
         };
-        int min = 0;
-        while (cnt > 0 && !queue.isEmpty()) {
-            int n = queue.size();
+        while (count > 0 && !queue.isEmpty()) {
             min++;
+            int n = queue.size();
             while (n-- > 0) {
                 int[] node = queue.poll();
                 int i = node[0];
@@ -96,13 +96,13 @@ class Solution {
                     int c = j + move[1];
                     if (inArea(grid, r, c) && grid[r][c] == 1) {
                         grid[r][c] = 2;
-                        cnt--;
+                        count--;
                         queue.offer(new int[]{r, c});
                     }
                 }
             }
         }
-        if (cnt > 0) {
+        if (count > 0) {
             return -1;
         }
         return min;

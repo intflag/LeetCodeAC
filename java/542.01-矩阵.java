@@ -55,7 +55,7 @@
 // @lc code=start
 class Solution {
     public int[][] updateMatrix(int[][] mat) {
-        Queue<int[]> queue = new ArrayDeque<>();
+        Deque<int[]> queue = new ArrayDeque<>();
         for (int i = 0; i < mat.length; i++) {
             for (int j = 0; j < mat[0].length; j++) {
                 if (mat[i][j] == 0) {

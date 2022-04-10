@@ -70,11 +70,11 @@
 class Solution {
 
     TreeNode prev = null;
-    boolean res = true;
+    boolean isValidBST = true;
 
     public boolean isValidBST(TreeNode root) {
         dfs(root);
-        return res;
+        return isValidBST;
     }
 
     void dfs(TreeNode root) {
@@ -83,7 +83,7 @@ class Solution {
         }
         dfs(root.left);
         if (prev != null && prev.val >= root.val) {
-            res = false;
+            isValidBST = false;
         }
         prev = root;
         dfs(root.right);

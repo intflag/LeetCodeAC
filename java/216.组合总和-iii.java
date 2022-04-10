@@ -69,12 +69,12 @@ class Solution {
     public List<List<Integer>> combinationSum3(int k, int n) {
         List<List<Integer>> list = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
-        backTracking(1, n, k, list, deque);
+        backTracking(1, k, n, list, deque);
         return list;
     }
 
-    void backTracking(int m, int target, int k, List<List<Integer>> list, Deque<Integer> deque) {
-        if (target == 0 && deque.size() == k) {
+    void backTracking(int m, int k, int target, List<List<Integer>> list, Deque<Integer> deque) {
+        if (target == 0 && k == deque.size()) {
             list.add(new ArrayList<>(deque));
             return;
         }
@@ -84,7 +84,7 @@ class Solution {
                 break;
             }
             deque.addLast(i);
-            backTracking(i + 1, currSum, k, list, deque);
+            backTracking(i + 1, k, currSum, list, deque);
             deque.removeLast();
         }
     }
