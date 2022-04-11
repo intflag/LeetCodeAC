@@ -50,21 +50,22 @@ class Solution {
         int left = 0;
         int right = n - 1;
         int num = n * n;
-        for (int i = 1; i <= n * n;) {
-            for (int j = left; j <= right && num-- > 0; j++) {
-                matrix[up][j] = i++;
+        int idx = 1;
+        while (num > 0) {
+            for (int i = left; i <= right && num-- > 0; i++) {
+                matrix[up][i] = idx++;
             }
             up++;
-            for (int j = up; j <= down && num-- > 0; j++) {
-                matrix[j][right] = i++;
+            for (int i = up; i <= down && num-- > 0; i++) {
+                matrix[i][right] = idx++;
             }
             right--;
-            for (int j = right; j >= left && num-- > 0; j--) {
-                matrix[down][j] = i++;
+            for (int i = right; i >= left && num-- > 0; i--) {
+                matrix[down][i] = idx++;
             }
             down--;
-            for (int j = down; j >= up && num-- > 0; j--) {
-                matrix[j][left] = i++;
+            for (int i = down; i >= up && num-- > 0; i--) {
+                matrix[i][left] = idx++;
             }
             left++;
         }

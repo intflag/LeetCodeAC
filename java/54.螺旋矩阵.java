@@ -71,7 +71,7 @@ class Solution {
             }
             left++;
         }
-        return list; 
+        return list;
     }
 }
 // @lc code=end
