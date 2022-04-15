@@ -55,7 +55,7 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
-        List<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
             if (i > 0 && nums[i] == nums[i - 1]) {
@@ -74,7 +74,7 @@ class Solution {
                     } else if (sum > target) {
                         right--;
                     } else {
-                        res.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                        list.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
                         while (left < right && nums[left] == nums[left + 1]) {
                             left++;
                         }
@@ -87,7 +87,7 @@ class Solution {
                 }
             }
         }
-        return res;
+        return list;
     }
 }
 // @lc code=end

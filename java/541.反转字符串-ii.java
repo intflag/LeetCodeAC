@@ -62,12 +62,12 @@ class Solution {
         return new String(arr);
     }
 
-    void reverse(char[] s, int i, int j) {
+    void reverse(char[] arr, int i, int j) {
         j -= 1;
         while (i < j) {
-            char c = s[i];
-            s[i] = s[j];
-            s[j] = c;
+            char c = arr[i];
+            arr[i] = arr[j];
+            arr[j] = c;
             i++;
             j--;
         }

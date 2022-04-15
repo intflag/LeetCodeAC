@@ -60,15 +60,15 @@ class Solution {
     public int[] sortedSquares(int[] nums) {
         int i = 0;
         int j = nums.length - 1;
-        int idx = j;
         int[] res = new int[nums.length];
+        int idx = j;
         while (i <= j) {
-            if (nums[i] * nums[i] > nums[j] * nums[j]) {
-                res[idx--] = nums[i] * nums[i];
-                i++;
-            } else {
+            if (nums[i] * nums[i] <= nums[j] * nums[j]) {
                 res[idx--] = nums[j] * nums[j];
                 j--;
+            } else {
+                res[idx--] = nums[i] * nums[i];
+                i++;
             }
         }
         return res;

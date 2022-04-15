@@ -62,7 +62,7 @@ class Solution {
         while (idx1 < nums1.length && idx2 < nums2.length) {
             if (nums1[idx1] < nums2[idx2]) {
                 idx1++;
-            } else if (nums1[idx1] > nums2[idx2]) {
+            } else if (nums1[idx1] > nums2[idx2]){
                 idx2++;
             } else {
                 res[idx++] = nums1[idx1];
