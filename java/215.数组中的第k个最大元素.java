@@ -49,72 +49,72 @@ class Solution {
         return nums[k - 1];
     } 
 
-    void quickSort(int[] nums, int left, int right) {
+    void quickSort(int[] arr, int left, int right) {
         if (left >= right) {
             return;
         }
-        int mid = partition(nums, left, right);
-        quickSort(nums, left, mid - 1);
-        quickSort(nums, mid + 1, right);
+        int mid = partition(arr, left, right);
+        quickSort(arr, left, mid - 1);
+        quickSort(arr, mid + 1, right);
     }
 
-    int partition(int[] nums, int left, int right) {
+    int partition(int[] arr, int left, int right) {
         int mid = left;
-        int flag = nums[right];
+        int flag = arr[right];
         for (int i = left; i < right; i++) {
-            if (nums[i] > flag) {
-                swap(nums, i, mid);
+            if (flag < arr[i]) {
+                swap(arr, i, mid);
                 mid++;
             }
         }
-        swap(nums, mid, right);
+        swap(arr, mid, right);
         return mid;
     }
 
-    void selectSort(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[i] < nums[j]) {
-                    swap(nums, i, j);
+    void selectSort(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] < arr[j]) {
+                    swap(arr, i, j);
                 }
             }
         }
     }
 
-    void insertSort(int[] nums) {
-        int n = nums.length;
-        if (n <= 1) {
+    void insertSort(int[] arr) {
+        int n = arr.length;
+        if (n < 1) {
             return;
         }
         for (int i = 1; i < n; i++) {
-            int val = nums[i];
+            int val = arr[i];
             int j = i - 1;
             while (j >= 0) {
-                if (nums[j] < val) {
-                    nums[j + 1] = nums[j];
+                if (arr[j] < val) {
+                    arr[j + 1] = arr[j];
                 } else {
                     break;
                 }
                 j--;
             }
-            nums[j + 1] = val;
+            arr[j + 1] = val;
         }
     }
 
-    void bubbleSort(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length - i - 1; j++) {
-                if (nums[j] < nums[j + 1]) {
-                    swap(nums, j, j + 1);
+    void bubbleSort(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] < arr[j + 1]) {
+                    swap(arr, j, j + 1);
                 }
             }
         }
     }
 
-    void swap(int[] nums, int i, int j) {
-        int k = nums[i];
-        nums[i] = nums[j];
-        nums[j] = k;
+    void swap(int[] arr, int i, int j) {
+        int k = arr[i];
+        arr[i] = arr[j];
+        arr[j] = k;
     }
 }
 // @lc code=end

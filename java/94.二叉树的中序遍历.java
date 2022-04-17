@@ -111,7 +111,7 @@ class Solution {
             curr = node.right;
         }
     }
-
+    
     void inOrder(TreeNode root, List<Integer> list) {
         if (root == null) {
             return;
