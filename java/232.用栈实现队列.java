@@ -46,42 +46,38 @@
 // @lc code=start
 class MyQueue {
 
-    private Stack<Integer> in = new Stack<>();
-    private Stack<Integer> out = new Stack<>();
+    private Deque<Integer> inStack;
+    private Deque<Integer> outStack;
 
-    /** Initialize your data structure here. */
     public MyQueue() {
-
+        inStack = new ArrayDeque<>();
+        outStack = new ArrayDeque<>();
     }
     
-    /** Push element x to the back of queue. */
     public void push(int x) {
-        in.push(x);
+        inStack.push(x);
     }
     
-    /** Removes the element from in front of queue and returns that element. */
     public int pop() {
         shift();
-        return out.pop();
+        return outStack.pop();
     }
     
-    /** Get the front element. */
     public int peek() {
         shift();
-        return out.peek();
+        return outStack.peek();
     }
 
-    public void shift() {
-        if (out.isEmpty()) {
-            while (!in.isEmpty()) {
-                out.push(in.pop());
+    private void shift() {
+        if (outStack.isEmpty()) {
+            while (!inStack.isEmpty()) {
+                outStack.push(inStack.pop());
             }
         }
     }
     
-    /** Returns whether the queue is empty. */
     public boolean empty() {
-        return in.isEmpty() && out.isEmpty();
+        return inStack.isEmpty() && outStack.isEmpty();
     }
 }
 

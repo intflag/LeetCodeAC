@@ -8,27 +8,21 @@
 class Solution {
 
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            if (ch == '(' || ch == '{' || ch == '[') {
-                stack.push(ch);
+        Deque<Character> stack = new ArrayDeque<>();
+        for (char ch : s.toCharArray()) {
+            if (ch == '(') {
+                stack.push(')');
+            } else if (ch == '{') {
+                stack.push('}');
+            } else if (ch == '[') {
+                stack.push(']');
+            } else if (stack.isEmpty() || stack.peek() != ch) {
+                return false;
             } else {
-                if (stack.isEmpty()) {
-                    return  false;
-                }
-                char x = stack.pop();
-                boolean b1 = ch == ')' && x != '(';
-                boolean b2 = ch == '}' && x != '{';
-                boolean b3 = ch == ']' && x != '[';
-                if (b1 || b2 || b3) {
-                    return false;
-                }
+                stack.pop();
             }
-            
         }
         return stack.isEmpty();
-        
     }
 }
 // @lc code=end
