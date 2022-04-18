@@ -79,6 +79,26 @@ class MyQueue {
     public boolean empty() {
         return inStack.isEmpty() && outStack.isEmpty();
     }
+
+    // public MyQueue() {
+
+    // }
+    
+    // public void push(int x) {
+
+    // }
+    
+    // public int pop() {
+
+    // }
+    
+    // public int peek() {
+
+    // }
+    
+    // public boolean empty() {
+
+    // }
 }
 
 /**

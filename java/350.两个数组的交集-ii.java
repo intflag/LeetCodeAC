@@ -57,12 +57,12 @@ class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
-        int idx = 0, idx1 = 0, idx2 = 0;
         int[] res = new int[Math.min(nums1.length, nums2.length)];
+        int idx = 0, idx1 = 0, idx2 = 0;
         while (idx1 < nums1.length && idx2 < nums2.length) {
             if (nums1[idx1] < nums2[idx2]) {
                 idx1++;
-            } else if (nums1[idx1] > nums2[idx2]){
+            } else if (nums1[idx1] > nums2[idx2]) {
                 idx2++;
             } else {
                 res[idx++] = nums1[idx1];

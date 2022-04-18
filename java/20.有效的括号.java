@@ -12,11 +12,11 @@ class Solution {
         for (char ch : s.toCharArray()) {
             if (ch == '(') {
                 stack.push(')');
-            } else if (ch == '{') {
-                stack.push('}');
             } else if (ch == '[') {
                 stack.push(']');
-            } else if (stack.isEmpty() || stack.peek() != ch) {
+            } else if (ch == '{') {
+                stack.push('}');
+            } else if (stack.isEmpty() || ch != stack.peek()) {
                 return false;
             } else {
                 stack.pop();

@@ -61,7 +61,7 @@
 // @lc code=start
 class Solution {
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
-        int count = 0;
+        int cnt = 0;
         Map<Integer, Integer> map = new HashMap<>();
         for (int i : nums1) {
             for (int j : nums2) {
@@ -72,12 +72,10 @@ class Solution {
         for (int i : nums3) {
             for (int j : nums4) {
                 int sum = i + j;
-                if (map.containsKey(0 - sum)) {
-                    count += map.get(0 - sum);
-                }
+                cnt += map.getOrDefault(0 - sum, 0);
             }
         }
-        return count;
+        return cnt;
     }
 }
 // @lc code=end

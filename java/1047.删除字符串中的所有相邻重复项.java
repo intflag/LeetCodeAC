@@ -47,7 +47,7 @@ class Solution {
         char[] arr = s.toCharArray();
         int fast = 0;
         int slow = 0;
-        while (fast < s.length()) {
+        while (fast < arr.length) {
             arr[slow] = arr[fast];
             if (slow > 0 && arr[slow] == arr[slow - 1]) {
                 slow--;
