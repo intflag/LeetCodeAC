@@ -37,31 +37,22 @@
 
 // @lc code=start
 class Solution {
-    public List<Integer> topKFrequent(int[] nums, int k) {
-        //首先统计数字出现的次数，key为该数字，val为该数字出现的次数
-        Map<Integer, Integer> numMap = new HashMap<>();
+    public int[] topKFrequent(int[] nums, int k) {
+        int[] topK = new int[k];
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i : nums) {
-            numMap.put(i, numMap.getOrDefault(i, 0) + 1);
+            map.put(i, map.getOrDefault(i, 0) + 1);
         }
-        //构建桶，桶的下标表示次数，每一个桶内存出现了该次的那个数字
-        List<Integer>[] buckets = new ArrayList[nums.length + 1];
-        numMap.forEach((key, val) -> {
-            if (buckets[val] == null) {
-                buckets[val] = new ArrayList<>();
+        Set<Map.Entry<Integer, Integer>> entries = map.entrySet();
+        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>((o1, o2) -> o1.getValue() - o2.getValue());
+        for (Map.Entry<Integer, Integer> entry : entries) {
+            queue.offer(entry);
+            if (queue.size() > k) {
+                queue.poll();
             }
-            buckets[val].add(key);
-        });
-        //从后往前遍历桶，取出出现频率最大的数字
-        List<Integer> topK = new ArrayList<>();
-        for (int i = buckets.length - 1; i >= 0 && topK.size() < k; i--) {
-            if (buckets[i] == null) {
-                continue;
-            }
-            if (buckets[i].size() <= k - topK.size()) {
-                topK.addAll(buckets[i]);
-            } else {
-                topK.addAll(buckets[i].subList(0, k - topK.size()));
-            }
+        }
+        for (int i = 0; i < k; i++) {
+            topK[k - i - 1] = queue.poll().getKey();
         }
         return topK;
     }
