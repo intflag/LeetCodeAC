@@ -55,8 +55,7 @@ class Solution {
         Deque<Integer> stack = new ArrayDeque<>();
         for (int i = 0; i < height.length; i++) {
             while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
-                int curr = stack.peek();
-                stack.pop();
+                int curr = stack.pop();
                 if (stack.isEmpty()) {
                     break;
                 }
