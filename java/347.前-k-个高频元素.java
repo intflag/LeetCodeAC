@@ -51,8 +51,8 @@ class Solution {
                 queue.poll();
             }
         }
-        for (int i = 0; i < k; i++) {
-            topK[k - i - 1] = queue.poll().getKey();
+        for (int i = k - 1; i >= 0; i--) {
+            topK[i] = queue.poll().getKey();
         }
         return topK;
     }

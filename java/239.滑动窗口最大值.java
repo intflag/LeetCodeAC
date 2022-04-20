@@ -62,7 +62,7 @@ class Solution {
         int[] windows = new int[nums.length - k + 1];
         int idx = 0;
         for (int i = 0; i < nums.length; i++) {
-            while (!deque.isEmpty() && deque.peek() < i - k + 1) {
+            while (!deque.isEmpty() && deque.peek() <= i - k) {
                 deque.poll();
             }
             while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
