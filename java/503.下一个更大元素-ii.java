@@ -57,8 +57,8 @@ class Solution {
         Arrays.fill(res, -1);
         Deque<Integer> stack = new ArrayDeque<>();
         for (int i = 0; i < n * 2; i++) {
-            while (!stack.isEmpty() && nums[i % n] > nums[stack.peek()]) {
-                res[stack.peek()] = nums[i % n];
+            while (!stack.isEmpty() && nums[stack.peek()] < nums[i % n]) {
+                res[stack.peek() % n] = nums[i % n];
                 stack.pop();
             }
             stack.push(i % n);

@@ -74,8 +74,8 @@ class Solution {
                     i--;
                     skipS++;
                 } else if (skipS > 0) {
-                    skipS--;
                     i--;
+                    skipS--;
                 } else {
                     break;
                 }
@@ -85,8 +85,8 @@ class Solution {
                     j--;
                     skipT++;
                 } else if (skipT > 0) {
-                    skipT--;
                     j--;
+                    skipT--;
                 } else {
                     break;
                 }

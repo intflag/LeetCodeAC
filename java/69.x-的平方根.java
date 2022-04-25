@@ -45,10 +45,10 @@ class Solution {
         int j = x;
         while (i <= j) {
             int m = i + ((j - i) >> 1);
-            if ((long) m * m < x) {
-                i = m + 1;
-            } else if ((long) m * m > x) {
+            if (x < (long) m * m) {
                 j = m - 1;
+            } else if (x > (long) m * m) {
+                i = m + 1;
             } else {
                 return m;
             }

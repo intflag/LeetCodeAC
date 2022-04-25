@@ -16,7 +16,7 @@ class Solution {
                 stack.push('}');
             } else if (ch == '[') {
                 stack.push(']');
-            } else if (stack.isEmpty() || ch != stack.peek()) {
+            } else if (stack.isEmpty() || stack.peek() != ch) {
                 return false;
             } else {
                 stack.pop();

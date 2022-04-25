@@ -50,10 +50,10 @@ class Solution {
         int j = num;
         while (i <= j) {
             int m = i + ((j - i) >> 1);
-            if ((long) m * m < num) {
-                i = m + 1;
-            } else if ((long) m * m > num) {
+            if (num < (long) m * m) {
                 j = m - 1;
+            } else if (num > (long) m * m) {
+                i = m + 1;
             } else {
                 return true;
             }

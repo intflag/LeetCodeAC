@@ -57,7 +57,7 @@ class Solution {
     }
 
     String palindrome(String s, int left, int right) {
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+        while (0 <= left && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
             right++;
         }

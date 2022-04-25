@@ -76,9 +76,9 @@
 // @lc code=start
 class Solution {
     public int totalFruit(int[] fruits) {
-        int i = 0;
-        int[] map = new int[fruits.length];
         int max = 0;
+        int[] map = new int[fruits.length];
+        int i = 0;
         int count = 0;
         for (int j = 0; j < fruits.length; j++) {
             map[fruits[j]]++;

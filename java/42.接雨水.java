@@ -49,25 +49,44 @@
 // @lc code=start
 class Solution {
 
-    //单调栈
     public int trap(int[] height) {
         int trap = 0;
-        Deque<Integer> stack = new ArrayDeque<>();
-        for (int i = 0; i < height.length; i++) {
-            while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
-                int curr = stack.pop();
-                if (stack.isEmpty()) {
-                    break;
-                }
-                int l = stack.peek();
-                int r = i;
-                int h = Math.min(height[l], height[r]) - height[curr];
-                trap += h * (r - l - 1);
-            }
-            stack.push(i);
+        int n = height.length;
+        int[] leftMax = new int[n];
+        int[] rightMax = new int[n];
+        leftMax[0] = height[0];
+        rightMax[n - 1] = height[n - 1];
+        for (int i = 1; i < n; i++) {
+            leftMax[i] = Math.max(leftMax[i - 1], height[i]);
+        }
+        for (int i = n - 2; i >= 0; i--) {
+            rightMax[i] = Math.max(rightMax[i + 1], height[i]);
+        }
+        for (int i = 1; i < n; i++) {
+            trap += Math.min(leftMax[i], rightMax[i]) - height[i];
         }
         return trap;
     }
+
+    //单调栈
+    // public int trap(int[] height) {
+    //     int trap = 0;
+    //     Deque<Integer> stack = new ArrayDeque<>();
+    //     for (int i = 0; i < height.length; i++) {
+    //         while (!stack.isEmpty() && height[stack.peek()] < height[i]) {
+    //             int curr = stack.pop();
+    //             if (stack.isEmpty()) {
+    //                 break;
+    //             }
+    //             int l = stack.peek();
+    //             int r = i;
+    //             int h = Math.min(height[l], height[r]) - height[curr];
+    //             trap += h * (r - l - 1);
+    //         }
+    //         stack.push(i);
+    //     }
+    //     return trap;
+    // }
 
     //双指针
     // public int trap(int[] height) {
