@@ -37,7 +37,7 @@ class Solution {
             }
             map.put(nums[i], i);
         }
-        return null;
+        return new int[]{-1, -1};
     }
 }
 // @lc code=end
