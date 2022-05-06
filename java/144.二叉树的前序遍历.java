@@ -68,8 +68,8 @@ class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         //preOrder(root, list);
-        preOrderUseStack(root, list);
-        // preOrderUseMorris(root, list);
+        //preOrderUseStack(root, list);
+        preOrderUseMorris(root, list);
         return list;
     }
 
@@ -82,7 +82,7 @@ class Solution {
             } else {
                 TreeNode next = curr.left;
                 while (next.right != null && next.right != curr) {
-                    next.right = curr;
+                    next = next.right;
                 }
                 if (next.right == null) {
                     list.add(curr.val);

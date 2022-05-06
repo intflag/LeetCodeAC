@@ -68,7 +68,7 @@ class MyQueue {
         return outStack.peek();
     }
 
-    private void shift() {
+    void shift() {
         if (outStack.isEmpty()) {
             while (!inStack.isEmpty()) {
                 outStack.push(inStack.pop());

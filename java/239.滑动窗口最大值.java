@@ -58,8 +58,8 @@
 // @lc code=start
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
-        Deque<Integer> deque = new ArrayDeque<>();
         int[] windows = new int[nums.length - k + 1];
+        Deque<Integer> deque = new ArrayDeque<>();
         int idx = 0;
         for (int i = 0; i < nums.length; i++) {
             while (!deque.isEmpty() && deque.peek() <= i - k) {

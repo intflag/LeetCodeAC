@@ -62,7 +62,7 @@ class Solution {
         int mid = left;
         int flag = arr[right];
         for (int i = left; i < right; i++) {
-            if (flag < arr[i]) {
+            if (arr[i] > flag) {
                 swap(arr, i, mid);
                 mid++;
             }
@@ -82,22 +82,14 @@ class Solution {
     }
 
     void insertSort(int[] arr) {
-        int n = arr.length;
-        if (n < 1) {
-            return;
-        }
-        for (int i = 1; i < n; i++) {
-            int val = arr[i];
-            int j = i - 1;
-            while (j >= 0) {
-                if (arr[j] < val) {
-                    arr[j + 1] = arr[j];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (arr[j] > arr[j - 1]) {
+                    swap(arr, j, j - 1);
                 } else {
                     break;
                 }
-                j--;
             }
-            arr[j + 1] = val;
         }
     }
 
