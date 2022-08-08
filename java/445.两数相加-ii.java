@@ -3,14 +3,14 @@
  *
  * [445] 两数相加 II
  *
- * https://leetcode-cn.com/problems/add-two-numbers-ii/description/
+ * https://leetcode.cn/problems/add-two-numbers-ii/description/
  *
  * algorithms
- * Medium (56.72%)
- * Likes:    176
+ * Medium (59.97%)
+ * Likes:    544
  * Dislikes: 0
- * Total Accepted:    28.9K
- * Total Submissions: 51K
+ * Total Accepted:    107.6K
+ * Total Submissions: 179.5K
  * Testcase Example:  '[7,2,4,3]\n[5,6,4]'
  *
  * 给你两个 非空 链表来代表两个非负整数。数字最高位位于链表开始位置。它们的每个节点只存储一位数字。将这两数相加会返回一个新的链表。
@@ -19,17 +19,42 @@
  * 
  * 
  * 
- * 进阶：
- * 
- * 如果输入链表不能修改该如何处理？换句话说，你不能对列表中的节点进行翻转。
+ * 示例1：
  * 
  * 
  * 
- * 示例：
  * 
- * 输入：(7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
- * 输出：7 -> 8 -> 0 -> 7
+ * 输入：l1 = [7,2,4,3], l2 = [5,6,4]
+ * 输出：[7,8,0,7]
  * 
+ * 
+ * 示例2：
+ * 
+ * 
+ * 输入：l1 = [2,4,3], l2 = [5,6,4]
+ * 输出：[8,0,7]
+ * 
+ * 
+ * 示例3：
+ * 
+ * 
+ * 输入：l1 = [0], l2 = [0]
+ * 输出：[0]
+ * 
+ * 
+ * 
+ * 
+ * 提示：
+ * 
+ * 
+ * 链表的长度范围为 [1, 100]
+ * 0 <= node.val <= 9
+ * 输入数据保证链表代表的数字无前导 0
+ * 
+ * 
+ * 
+ * 
+ * 进阶：如果输入链表不能翻转该如何解决？
  * 
  */
 
@@ -39,70 +64,14 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
-    // public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-    //     Stack<Integer> stackA = buildStack(l1);
-    //     Stack<Integer> stackB = buildStack(l2);
-    //     ListNode head = null;
-    //     int tmp = 0;
-    //     while (!stackA.isEmpty() || !stackB.isEmpty() || tmp != 0) {
-    //         int x = stackA.isEmpty() ? 0 : stackA.pop();
-    //         int y = stackB.isEmpty() ? 0 : stackB.pop();
-    //         int sum = x + y + tmp;
-    //         ListNode node = new ListNode(sum % 10);
-    //         node.next = head;
-    //         head = node;
-    //         tmp = sum / 10;
-    //     }
-    //     return head;
-    // }
-
-    // public Stack<Integer> buildStack(ListNode node) {
-    //     Stack<Integer> stack = new Stack<>();
-    //     while (node != null) {
-    //         stack.push(node.val);
-    //         node = node.next;
-    //     }
-    //     return stack;
-    // }
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        l1 = reverseList(l1);
-        l2 = reverseList(l2);
-        ListNode prev = null;
-        int k = 0;
-        while (l1 != null || l2 != null || k > 0) {
-            int x = l1 == null ? 0 : l1.val;
-            int y = l2 == null ? 0 : l2.val;
-            int sum = x + y + k;
-            ListNode node = new ListNode(sum % 10);
-            node.next = prev;
-            prev = node;
-            k = sum / 10;
-            if (l1 != null) {
-                l1 = l1.next;
-            }
-            if (l2 != null) {
-                l2 = l2.next;
-            }
-        }
-        return prev;
     }
-
-    ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
-        while (curr != null) {
-            ListNode next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
-    }
-
 }
 // @lc code=end
 

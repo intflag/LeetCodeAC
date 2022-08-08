@@ -3,14 +3,14 @@
  *
  * [90] 子集 II
  *
- * https://leetcode-cn.com/problems/subsets-ii/description/
+ * https://leetcode.cn/problems/subsets-ii/description/
  *
  * algorithms
- * Medium (63.39%)
- * Likes:    752
+ * Medium (63.59%)
+ * Likes:    899
  * Dislikes: 0
- * Total Accepted:    171.7K
- * Total Submissions: 270.8K
+ * Total Accepted:    228.8K
+ * Total Submissions: 359.8K
  * Testcase Example:  '[1,2,2]'
  *
  * 给你一个整数数组 nums ，其中可能包含重复元素，请你返回该数组所有可能的子集（幂集）。
@@ -51,26 +51,6 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        Arrays.sort(nums);
-        Deque<Integer> deque = new ArrayDeque<>();
-        backTracking(nums, 0, list, deque);
-        return list;
-    }
-
-    void backTracking(int[] nums, int m, List<List<Integer>> list, Deque<Integer> deque) {
-        if (m == nums.length) {
-            list.add(new ArrayList<>(deque));
-            return;
-        }
-        int i = m;
-        while (i < nums.length && nums[i] == nums[m]) {
-            i++;
-        }
-        backTracking(nums, i, list, deque);
-        deque.addLast(nums[m]);
-        backTracking(nums, m + 1, list, deque);
-        deque.removeLast();
     }
 }
 // @lc code=end

@@ -3,14 +3,14 @@
  *
  * [39] 组合总和
  *
- * https://leetcode-cn.com/problems/combination-sum/description/
+ * https://leetcode.cn/problems/combination-sum/description/
  *
  * algorithms
- * Medium (72.79%)
- * Likes:    1773
+ * Medium (72.68%)
+ * Likes:    2094
  * Dislikes: 0
- * Total Accepted:    419.9K
- * Total Submissions: 576.9K
+ * Total Accepted:    570.2K
+ * Total Submissions: 784.8K
  * Testcase Example:  '[2,3,6,7]\n7'
  *
  * 给你一个 无重复元素 的整数数组 candidates 和一个目标整数 target ，找出 candidates 中可以使数字和为目标数 target
@@ -64,14 +64,11 @@ class Solution {
         List<List<Integer>> list = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
         Arrays.sort(candidates);
-        backTracking(candidates, 0, target, list, deque);
+        backTracking(candidates, target, 0, list, deque);
         return list;
     }
 
-    void backTracking(int[] candidates, int m, int target, List<List<Integer>> list, Deque<Integer> deque) {
-        // if (target < 0) {
-        //     return;
-        // }
+    void backTracking(int[] candidates, int target, int m, List<List<Integer>> list, Deque<Integer> deque) {
         if (target == 0) {
             list.add(new ArrayList<>(deque));
             return;
@@ -82,7 +79,7 @@ class Solution {
                 break;
             }
             deque.addLast(candidates[i]);
-            backTracking(candidates, i, currSum, list, deque);
+            backTracking(candidates, currSum, i, list, deque);
             deque.removeLast();
         }
     }

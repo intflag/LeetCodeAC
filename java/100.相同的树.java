@@ -3,14 +3,14 @@
  *
  * [100] 相同的树
  *
- * https://leetcode-cn.com/problems/same-tree/description/
+ * https://leetcode.cn/problems/same-tree/description/
  *
  * algorithms
  * Easy (59.86%)
- * Likes:    766
+ * Likes:    875
  * Dislikes: 0
- * Total Accepted:    298.1K
- * Total Submissions: 497.9K
+ * Total Accepted:    369.5K
+ * Total Submissions: 617.2K
  * Testcase Example:  '[1,2,3]\n[1,2,3]'
  *
  * 给你两棵二叉树的根节点 p 和 q ，编写一个函数来检验这两棵树是否相同。
@@ -80,7 +80,6 @@ class Solution {
         }
         return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
-
 }
 // @lc code=end
 

@@ -3,14 +3,14 @@
  *
  * [19] 删除链表的倒数第 N 个结点
  *
- * https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/description/
+ * https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/
  *
  * algorithms
- * Medium (43.56%)
- * Likes:    1831
+ * Medium (44.44%)
+ * Likes:    2161
  * Dislikes: 0
- * Total Accepted:    671.3K
- * Total Submissions: 1.5M
+ * Total Accepted:    877.5K
+ * Total Submissions: 2M
  * Testcase Example:  '[1,2,3,4,5]\n2'
  *
  * 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
@@ -68,22 +68,6 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode fast = head;
-        while (n-- > 0) {
-            fast = fast.next;
-        }
-        if (fast == null) {
-            return head.next;
-        }
-        ListNode slow = head;
-        ListNode prev = null;
-        while (fast != null) {
-            fast = fast.next;
-            prev = slow;
-            slow = slow.next;
-        }
-        prev.next = prev.next.next;
-        return head;
     }
 }
 // @lc code=end

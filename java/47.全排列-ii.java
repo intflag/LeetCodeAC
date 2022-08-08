@@ -3,14 +3,14 @@
  *
  * [47] 全排列 II
  *
- * https://leetcode-cn.com/problems/permutations-ii/description/
+ * https://leetcode.cn/problems/permutations-ii/description/
  *
  * algorithms
- * Medium (64.28%)
- * Likes:    961
+ * Medium (65.03%)
+ * Likes:    1150
  * Dislikes: 0
- * Total Accepted:    271.9K
- * Total Submissions: 422.6K
+ * Total Accepted:    357.1K
+ * Total Submissions: 549K
  * Testcase Example:  '[1,1,2]'
  *
  * 给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。
@@ -48,27 +48,6 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        List<Integer> current = Arrays.stream(nums).boxed().collect(Collectors.toList());
-        backTracking(current, 0, list);
-        return list;
-    }
-
-    void backTracking(List<Integer> current, int m, List<List<Integer>> list) {
-        if (m == current.size()) {
-            list.add(new ArrayList<>(current));
-            return;
-        }
-        Set<Integer> set = new HashSet<>();
-        for (int i = m; i < current.size(); i++) {
-            if (set.contains(current.get(i))) {
-                continue;
-            }
-            set.add(current.get(i));
-            Collections.swap(current, i, m);
-            backTracking(current, m + 1, list);
-            Collections.swap(current, i, m);
-        }
     }
 }
 // @lc code=end

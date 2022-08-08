@@ -3,14 +3,14 @@
  *
  * [129] 求根节点到叶节点数字之和
  *
- * https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/description/
+ * https://leetcode.cn/problems/sum-root-to-leaf-numbers/description/
  *
  * algorithms
- * Medium (68.93%)
- * Likes:    487
+ * Medium (69.64%)
+ * Likes:    558
  * Dislikes: 0
- * Total Accepted:    141.7K
- * Total Submissions: 205.6K
+ * Total Accepted:    176.5K
+ * Total Submissions: 253.4K
  * Testcase Example:  '[1,2,3]'
  *
  * 给你一个二叉树的根节点 root ，树中每个节点都存放有一个 0 到 9 之间的数字。
@@ -82,18 +82,18 @@
  */
 class Solution {
     public int sumNumbers(TreeNode root) {
-        return dfs(root, 0);
+        return sumNumbers(root, 0);
     }
 
-    int dfs(TreeNode root, int num) {
+    int sumNumbers(TreeNode root, int num) {
         if (root == null) {
             return 0;
         }
-        int sum = 10 * num + root.val;
+        num = 10 * num + root.val;
         if (root.left == null && root.right == null) {
-            return sum;
+            return num;
         }
-        return dfs(root.left, sum) + dfs(root.right, sum);
+        return sumNumbers(root.left, num) + sumNumbers(root.right, num);
     }
 }
 // @lc code=end

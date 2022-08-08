@@ -3,14 +3,14 @@
  *
  * [695] 岛屿的最大面积
  *
- * https://leetcode-cn.com/problems/max-area-of-island/description/
+ * https://leetcode.cn/problems/max-area-of-island/description/
  *
  * algorithms
- * Medium (67.12%)
- * Likes:    700
+ * Medium (67.76%)
+ * Likes:    822
  * Dislikes: 0
- * Total Accepted:    168.4K
- * Total Submissions: 250.7K
+ * Total Accepted:    226K
+ * Total Submissions: 333.6K
  * Testcase Example:  '[[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]'
  *
  * 给你一个大小为 m x n 的二进制矩阵 grid 。
@@ -76,7 +76,7 @@ class Solution {
             return 0;
         }
         grid[i][j] = 2;
-        return 1 
+        return 1
             + dfs(grid, i - 1, j)
             + dfs(grid, i + 1, j)
             + dfs(grid, i, j - 1)

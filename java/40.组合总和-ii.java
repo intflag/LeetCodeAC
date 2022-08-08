@@ -3,14 +3,14 @@
  *
  * [40] 组合总和 II
  *
- * https://leetcode-cn.com/problems/combination-sum-ii/description/
+ * https://leetcode.cn/problems/combination-sum-ii/description/
  *
  * algorithms
- * Medium (61.30%)
- * Likes:    864
+ * Medium (60.56%)
+ * Likes:    1062
  * Dislikes: 0
- * Total Accepted:    251.1K
- * Total Submissions: 410.5K
+ * Total Accepted:    330.2K
+ * Total Submissions: 545.5K
  * Testcase Example:  '[10,1,2,7,6,1,5]\n8'
  *
  * 给定一个候选人编号的集合 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
@@ -58,30 +58,6 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> list = new ArrayList<>();
-        Deque<Integer> deque = new ArrayDeque<>();
-        Arrays.sort(candidates);
-        backTracking(candidates, 0, target, list, deque);
-        return list;
-    }
-
-    void backTracking(int[] candidates, int m, int target, List<List<Integer>> list, Deque<Integer> deque) {
-        if (target == 0) {
-            list.add(new ArrayList<>(deque));
-            return;
-        }
-        for (int i = m; i < candidates.length; i++) {
-            if (m < i && candidates[i] == candidates[i - 1]) {
-                continue;
-            }
-            int currSum = target - candidates[i];
-            if (currSum < 0) {
-                break;
-            }
-            deque.addLast(candidates[i]);
-            backTracking(candidates, i + 1, currSum, list, deque);
-            deque.removeLast();
-        }
     }
 }
 // @lc code=end

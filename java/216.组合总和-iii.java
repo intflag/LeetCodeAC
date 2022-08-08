@@ -3,14 +3,14 @@
  *
  * [216] 组合总和 III
  *
- * https://leetcode-cn.com/problems/combination-sum-iii/description/
+ * https://leetcode.cn/problems/combination-sum-iii/description/
  *
  * algorithms
- * Medium (73.32%)
- * Likes:    432
+ * Medium (72.52%)
+ * Likes:    517
  * Dislikes: 0
- * Total Accepted:    130.3K
- * Total Submissions: 178K
+ * Total Accepted:    184K
+ * Total Submissions: 253.8K
  * Testcase Example:  '3\n7'
  *
  * 找出所有相加之和为 n 的 k 个数的组合，且满足下列条件：
@@ -69,22 +69,22 @@ class Solution {
     public List<List<Integer>> combinationSum3(int k, int n) {
         List<List<Integer>> list = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
-        backTracking(1, k, n, list, deque);
+        backTracking(n, k, 1, list, deque);
         return list;
     }
 
-    void backTracking(int m, int k, int target, List<List<Integer>> list, Deque<Integer> deque) {
-        if (target == 0 && k == deque.size()) {
+    void backTracking(int n, int k, int m, List<List<Integer>> list, Deque<Integer> deque) {
+        if (n == 0 && k == deque.size()) {
             list.add(new ArrayList<>(deque));
             return;
         }
         for (int i = m; i <= 9; i++) {
-            int currSum = target - i;
-            if (currSum < 0) {
+            if (n < 0) {
                 break;
             }
+            int currSum = n - i;
             deque.addLast(i);
-            backTracking(i + 1, k, currSum, list, deque);
+            backTracking(currSum, k, i + 1, list, deque);
             deque.removeLast();
         }
     }

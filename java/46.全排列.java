@@ -3,14 +3,14 @@
  *
  * [46] 全排列
  *
- * https://leetcode-cn.com/problems/permutations/description/
+ * https://leetcode.cn/problems/permutations/description/
  *
  * algorithms
- * Medium (78.49%)
- * Likes:    1807
+ * Medium (78.68%)
+ * Likes:    2151
  * Dislikes: 0
- * Total Accepted:    529.9K
- * Total Submissions: 675.1K
+ * Total Accepted:    686.8K
+ * Total Submissions: 872.7K
  * Testcase Example:  '[1,2,3]'
  *
  * 给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
@@ -52,23 +52,8 @@
 
 // @lc code=start
 class Solution {
-    public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        List<Integer> current = Arrays.stream(nums).boxed().collect(Collectors.toList());
-        backTracking(current, 0, list);
-        return list;
-    }
 
-    void backTracking(List<Integer> current, int m, List<List<Integer>> list) {
-        if (m == current.size()) {
-            list.add(new ArrayList<>(current));
-            return;
-        }
-        for (int i = m; i < current.size(); i++) {
-            Collections.swap(current, i, m);
-            backTracking(current, m + 1, list);
-            Collections.swap(current, i, m);
-        }
+    public List<List<Integer>> permute(int[] nums) {
     }
 }
 // @lc code=end

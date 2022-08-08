@@ -3,14 +3,14 @@
  *
  * [148] 排序链表
  *
- * https://leetcode-cn.com/problems/sort-list/description/
+ * https://leetcode.cn/problems/sort-list/description/
  *
  * algorithms
- * Medium (66.57%)
- * Likes:    1484
+ * Medium (66.32%)
+ * Likes:    1731
  * Dislikes: 0
- * Total Accepted:    253.5K
- * Total Submissions: 380.9K
+ * Total Accepted:    330.1K
+ * Total Submissions: 497.9K
  * Testcase Example:  '[4,2,1,3]'
  *
  * 给你链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。
@@ -75,7 +75,7 @@ class Solution {
         ListNode mid = split(head);
         ListNode left = sortList(head);
         ListNode right = sortList(mid);
-        return mergeTwoLists(left, right);
+        return megreTwoLists(left, right);
     }
 
     ListNode split(ListNode head) {
@@ -91,7 +91,7 @@ class Solution {
         return slow;
     }
 
-    ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    ListNode megreTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
         }
@@ -99,10 +99,10 @@ class Solution {
             return l1;
         }
         if (l1.val <= l2.val) {
-            l1.next = mergeTwoLists(l1.next, l2);
+            l1.next = megreTwoLists(l1.next, l2);
             return l1;
         } else {
-            l2.next = mergeTwoLists(l1, l2.next);
+            l2.next = megreTwoLists(l1, l2.next);
             return l2;
         }
     }

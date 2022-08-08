@@ -1,18 +1,16 @@
-import java.util.ArrayList;
-
 /*
  * @lc app=leetcode.cn id=257 lang=java
  *
  * [257] 二叉树的所有路径
  *
- * https://leetcode-cn.com/problems/binary-tree-paths/description/
+ * https://leetcode.cn/problems/binary-tree-paths/description/
  *
  * algorithms
- * Easy (69.03%)
- * Likes:    653
+ * Easy (70.09%)
+ * Likes:    794
  * Dislikes: 0
- * Total Accepted:    174K
- * Total Submissions: 252K
+ * Total Accepted:    235.2K
+ * Total Submissions: 335.5K
  * Testcase Example:  '[1,2,3,null,5]'
  *
  * 给你一个二叉树的根节点 root ，按 任意顺序 ，返回所有从根节点到叶子节点的路径。
@@ -68,18 +66,16 @@ class Solution {
         return list;
     }
 
-    void dfs(TreeNode root, List<String> list, String currStr) {
+    void dfs(TreeNode root, List<String> list, String p) {
         if (root == null) {
             return;
         }
         if (root.left == null && root.right == null) {
-            list.add(currStr + root.val);
-            return;
+            list.add(p + root.val);
         }
-        currStr += root.val + "->";
-        dfs(root.left, list, currStr);
-        dfs(root.right, list, currStr);
-
+        p = p + root.val + "->";
+        dfs(root.left, list, p);
+        dfs(root.right, list, p);
     }
 }
 // @lc code=end

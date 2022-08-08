@@ -3,14 +3,14 @@
  *
  * [142] 环形链表 II
  *
- * https://leetcode-cn.com/problems/linked-list-cycle-ii/description/
+ * https://leetcode.cn/problems/linked-list-cycle-ii/description/
  *
  * algorithms
- * Medium (55.69%)
- * Likes:    1405
+ * Medium (56.34%)
+ * Likes:    1708
  * Dislikes: 0
- * Total Accepted:    376.5K
- * Total Submissions: 675.7K
+ * Total Accepted:    509.4K
+ * Total Submissions: 903.8K
  * Testcase Example:  '[3,2,0,-4]\n1'
  *
  * 给定一个链表的头节点  head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
@@ -86,21 +86,6 @@
  */
 public class Solution {
     public ListNode detectCycle(ListNode head) {
-        ListNode fast = head;
-        ListNode slow = head;
-        while (fast != null && fast.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-            if (fast == slow) {
-                ListNode prev = head;
-                while (prev != slow) {
-                    prev = prev.next;
-                    slow = slow.next;
-                }
-                return prev;
-            }
-        }
-        return null;
     }
 }
 // @lc code=end

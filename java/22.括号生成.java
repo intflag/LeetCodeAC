@@ -3,14 +3,14 @@
  *
  * [22] 括号生成
  *
- * https://leetcode-cn.com/problems/generate-parentheses/description/
+ * https://leetcode.cn/problems/generate-parentheses/description/
  *
  * algorithms
- * Medium (77.37%)
- * Likes:    2394
+ * Medium (77.50%)
+ * Likes:    2795
  * Dislikes: 0
- * Total Accepted:    433.5K
- * Total Submissions: 560.4K
+ * Total Accepted:    561.8K
+ * Total Submissions: 724.9K
  * Testcase Example:  '3'
  *
  * 数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
@@ -45,24 +45,30 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
         List<String> list = new ArrayList<>();
-        backTracking("", n, n, list);
+        StringBuilder sb = new StringBuilder();
+        backTracking(n, n, list, sb);
         return list;
     }
 
-    void backTracking(String currStr, int left, int right,  List<String> list) {
+    void backTracking(int left, int right, List<String> list, StringBuilder sb) {
+        if (left < 0 || right < 0) {
+            return;
+        }
+        if (right < left) {
+            return;
+        }
         if (left == 0 && right == 0) {
-            list.add(currStr);
+            list.add(sb.toString());
             return;
         }
-        if (left > right) {
-            return;
-        }
-        if (left > 0) {
-            backTracking(currStr + "(", left - 1, right, list);
-        }
-        if (right > 0) {
-            backTracking(currStr + ")", left, right - 1, list);
-        }
+
+        sb.append('(');
+        backTracking(left - 1, right, list, sb);
+        sb.deleteCharAt(sb.length() - 1);
+
+        sb.append(')');
+        backTracking(left, right - 1, list, sb);
+        sb.deleteCharAt(sb.length() - 1);
     }
 }
 // @lc code=end

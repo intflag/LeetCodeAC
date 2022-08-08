@@ -3,14 +3,14 @@
  *
  * [876] 链表的中间结点
  *
- * https://leetcode-cn.com/problems/middle-of-the-linked-list/description/
+ * https://leetcode.cn/problems/middle-of-the-linked-list/description/
  *
  * algorithms
- * Easy (70.65%)
- * Likes:    497
+ * Easy (70.59%)
+ * Likes:    647
  * Dislikes: 0
- * Total Accepted:    206.2K
- * Total Submissions: 291.8K
+ * Total Accepted:    288.9K
+ * Total Submissions: 409.3K
  * Testcase Example:  '[1,2,3,4,5]'
  *
  * 给定一个头结点为 head 的非空单链表，返回链表的中间结点。

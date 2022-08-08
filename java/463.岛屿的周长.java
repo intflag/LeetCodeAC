@@ -3,14 +3,14 @@
  *
  * [463] 岛屿的周长
  *
- * https://leetcode-cn.com/problems/island-perimeter/description/
+ * https://leetcode.cn/problems/island-perimeter/description/
  *
  * algorithms
- * Easy (70.38%)
- * Likes:    510
+ * Easy (70.32%)
+ * Likes:    570
  * Dislikes: 0
- * Total Accepted:    88.3K
- * Total Submissions: 125.5K
+ * Total Accepted:    105.2K
+ * Total Submissions: 149.6K
  * Testcase Example:  '[[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]'
  *
  * 给定一个 row x col 的二维网格地图 grid ，其中：grid[i][j] = 1 表示陆地， grid[i][j] = 0 表示水域。
@@ -83,7 +83,8 @@ class Solution {
             return 0;
         }
         grid[i][j] = 2;
-        return dfs(grid, i - 1, j)
+        return 0
+            + dfs(grid, i - 1, j)
             + dfs(grid, i + 1, j)
             + dfs(grid, i, j - 1)
             + dfs(grid, i, j + 1);

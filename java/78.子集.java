@@ -3,14 +3,14 @@
  *
  * [78] 子集
  *
- * https://leetcode-cn.com/problems/subsets/description/
+ * https://leetcode.cn/problems/subsets/description/
  *
  * algorithms
- * Medium (80.35%)
- * Likes:    1493
+ * Medium (80.70%)
+ * Likes:    1735
  * Dislikes: 0
- * Total Accepted:    379.1K
- * Total Submissions: 471.7K
+ * Total Accepted:    496.7K
+ * Total Submissions: 615.5K
  * Testcase Example:  '[1,2,3]'
  *
  * 给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
@@ -48,21 +48,6 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        Deque<Integer> deque = new ArrayDeque<>();
-        backTracking(nums, 0, list, deque);
-        return list;
-    }
-
-    void backTracking(int[] nums, int m, List<List<Integer>> list, Deque<Integer> deque) {
-        if (m == nums.length) {
-            list.add(new ArrayList<>(deque));
-            return;
-        }
-        backTracking(nums, m + 1, list, deque);
-        deque.addLast(nums[m]);
-        backTracking(nums, m + 1, list, deque);
-        deque.removeLast();
     }
 }
 // @lc code=end

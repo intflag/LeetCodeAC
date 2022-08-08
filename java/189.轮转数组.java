@@ -3,14 +3,14 @@
  *
  * [189] 轮转数组
  *
- * https://leetcode-cn.com/problems/rotate-array/description/
+ * https://leetcode.cn/problems/rotate-array/description/
  *
  * algorithms
- * Medium (44.52%)
- * Likes:    1360
+ * Medium (44.36%)
+ * Likes:    1564
  * Dislikes: 0
- * Total Accepted:    442K
- * Total Submissions: 993.7K
+ * Total Accepted:    540.3K
+ * Total Submissions: 1.2M
  * Testcase Example:  '[1,2,3,4,5,6,7]\n3'
  *
  * 给你一个数组，将数组中的元素向右轮转 k 个位置，其中 k 是非负数。
