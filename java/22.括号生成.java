@@ -44,31 +44,6 @@
 // @lc code=start
 class Solution {
     public List<String> generateParenthesis(int n) {
-        List<String> list = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
-        backTracking(n, n, list, sb);
-        return list;
-    }
-
-    void backTracking(int left, int right, List<String> list, StringBuilder sb) {
-        if (left < 0 || right < 0) {
-            return;
-        }
-        if (right < left) {
-            return;
-        }
-        if (left == 0 && right == 0) {
-            list.add(sb.toString());
-            return;
-        }
-
-        sb.append('(');
-        backTracking(left - 1, right, list, sb);
-        sb.deleteCharAt(sb.length() - 1);
-
-        sb.append(')');
-        backTracking(left, right - 1, list, sb);
-        sb.deleteCharAt(sb.length() - 1);
     }
 }
 // @lc code=end

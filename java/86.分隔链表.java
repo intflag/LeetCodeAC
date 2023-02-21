@@ -58,24 +58,6 @@
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode prev1 = new ListNode(-1);
-        ListNode prev2 = new ListNode(-1);
-        ListNode l1 = prev1;
-        ListNode l2 = prev2;
-        while (head != null) {
-            if (head.val < x) {
-                l1.next = head;
-                l1 = l1.next;
-            } else {
-                l2.next = head;
-                l2 = l2.next;
-            }
-            ListNode next = head.next;
-            head.next = null;
-            head = next;
-        }
-        l1.next = prev2.next;
-        return prev1.next;
     }
 }
 // @lc code=end

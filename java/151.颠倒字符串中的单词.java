@@ -68,52 +68,6 @@
 // @lc code=start
 class Solution {
     public String reverseWords(String s) {
-        s = trimSpace(s);
-        char[] arr = s.toCharArray();
-        reverse(arr, 0, arr.length);
-        int start = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == ' ') {
-                reverse(arr, start, i);
-                start = i + 1;
-            }
-            if (i == arr.length - 1) {
-                reverse(arr, start, i + 1);
-            }
-        }
-        return new String(arr);
-    }
-
-    String trimSpace(String s) {
-        int i = 0; 
-        int j = s.length() - 1;
-        while (s.charAt(i) == ' ') {
-            i++;
-        }
-        while (s.charAt(j) == ' ') {
-            j--;
-        }
-        StringBuilder sb  = new StringBuilder();
-        while (i <= j) {
-            if (s.charAt(i) != ' ') {
-                sb.append(s.charAt(i));
-            } else if (s.charAt(i) == ' ' && s.charAt(i - 1) != ' ') {
-                sb.append(s.charAt(i));
-            }
-            i++;
-        }
-        return sb.toString();
-    }
-
-    void reverse(char[] arr, int i, int j) {
-        j -= 1;
-        while (i < j) {
-            char ch = arr[i];
-            arr[i] = arr[j];
-            arr[j] = ch;
-            i++;
-            j--;
-        }
     }
 }
 // @lc code=end

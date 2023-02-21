@@ -44,17 +44,6 @@
 // @lc code=start
 class Solution {
     public String convertToBase7(int num) {
-        if (num == 0) {
-            return "0";
-        }
-        int res = Math.abs(num);
-        StringBuilder sb = new StringBuilder();
-        while (res > 0) {
-            sb.append(res % 7);
-            res /= 7;
-        }
-        String s = sb.reverse().toString();
-        return num < 0 ? "-" + s : s; 
     }
 }
 // @lc code=end

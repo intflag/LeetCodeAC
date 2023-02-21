@@ -74,24 +74,6 @@
  */
 class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        List<List<Integer>> list = new ArrayList<>();
-        Deque<Integer> deque = new ArrayDeque<>();
-        backTracking(root, targetSum, list, deque);
-        return list;
-    }
-
-    void backTracking(TreeNode root, int targetSum, List<List<Integer>> list, Deque<Integer> deque) {
-        if (root == null) {
-            return;
-        }
-        deque.addLast(root.val);
-        if (targetSum == root.val && root.left == null && root.right == null) {
-            list.add(new ArrayList<>(deque));
-        }
-        int sum = targetSum - root.val;
-        backTracking(root.left, sum, list, deque);
-        backTracking(root.right, sum, list, deque);
-        deque.removeLast();
     }
 }
 // @lc code=end

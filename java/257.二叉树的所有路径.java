@@ -61,21 +61,6 @@
  */
 class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> list = new ArrayList<>();
-        dfs(root, list, "");
-        return list;
-    }
-
-    void dfs(TreeNode root, List<String> list, String p) {
-        if (root == null) {
-            return;
-        }
-        if (root.left == null && root.right == null) {
-            list.add(p + root.val);
-        }
-        p = p + root.val + "->";
-        dfs(root.left, list, p);
-        dfs(root.right, list, p);
     }
 }
 // @lc code=end

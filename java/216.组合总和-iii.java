@@ -67,26 +67,6 @@
 // @lc code=start
 class Solution {
     public List<List<Integer>> combinationSum3(int k, int n) {
-        List<List<Integer>> list = new ArrayList<>();
-        Deque<Integer> deque = new ArrayDeque<>();
-        backTracking(n, k, 1, list, deque);
-        return list;
-    }
-
-    void backTracking(int n, int k, int m, List<List<Integer>> list, Deque<Integer> deque) {
-        if (n == 0 && k == deque.size()) {
-            list.add(new ArrayList<>(deque));
-            return;
-        }
-        for (int i = m; i <= 9; i++) {
-            if (n < 0) {
-                break;
-            }
-            int currSum = n - i;
-            deque.addLast(i);
-            backTracking(currSum, k, i + 1, list, deque);
-            deque.removeLast();
-        }
     }
 }
 // @lc code=end

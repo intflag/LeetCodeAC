@@ -73,31 +73,6 @@
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        if (lists.length == 0) {
-            return null;
-        }
-        ListNode l1 = lists[0];
-        for (int i = 1; i < lists.length; i++) {
-            ListNode node = lists[i];
-            l1 = megreTwoLists(l1, node);
-        }
-        return l1;
-    }
-
-    ListNode megreTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        }
-        if (l2 == null) {
-            return l1;
-        }
-        if (l1.val <= l2.val) {
-            l1.next = megreTwoLists(l1.next, l2);
-            return l1;
-        } else {
-            l2.next = megreTwoLists(l1, l2.next);
-            return l2;
-        }
     }
 }
 // @lc code=end
